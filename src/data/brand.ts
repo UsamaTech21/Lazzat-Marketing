@@ -1,0 +1,58 @@
+export const brand = {
+  name: "Lazzat Grill & Shakes",
+  site: "https://www.lazzat.ca",
+  email: "hello@lazzat.com",
+  instagram: "@lazzat.ca",
+  medium: "https://medium.com/@lazzat.ca",
+  pinterest: "https://www.pinterest.com/lazzatcanada/",
+  launchDate: "April 26, 2026",
+  taglines: {
+    primary: "Taste the World. Crafted Fresh. Served Fast.",
+    secondary: "Uniting Through Flavours.",
+    webHero: "Flame-Grilled Bowls. Real-Fruit Shakes.",
+  },
+  colors: {
+    midnight: "#0D0D0D",
+    cream: "#FAF7F0",
+    gold: "#EAC329",
+    goldLight: "#F1CF4D",
+    goldDeep: "#8A8A3E",
+  },
+  vision: [
+    "Canadian brand — not ethnic-coded. Made for every person in this country.",
+    "Target is everyone: young, white, brown, black Canadian — great food without compromise.",
+    "World-level ambition: premium live-fire grill + shakes empire (Chipotle/McDonald's scale thinking).",
+  ],
+  nonNegotiables: [
+    'Never say "halal" in customer-facing copy — use clean meat / ethically sourced / blood-free preparation.',
+    'Never say "charcoal" — say lava stone grilling.',
+    'Never use Pakistani / South Asian / Desi framing — Lazzat is a Canadian brand.',
+    "No religious phrases in brand communications.",
+    "Do not invent live follower / GMB counts — verify or mark TBD.",
+    "No unverified 5-minute / allergen-free / zero-frozen claims until ops confirms.",
+    "Ads launch/reset on Tuesdays; same video to all platforms simultaneously.",
+  ],
+  locations: [
+    {
+      name: "McVean Dr (Castlemore)",
+      status: "Open",
+      address: "11685 McVean Dr, Brampton, ON L6P 4N5",
+      hours: "Mon–Thu 11–11, Fri–Sat 11–12, Sun 12–10",
+      angle: "Premium grill, family occasions",
+    },
+    {
+      name: "Clarence St (Downtown)",
+      status: "Confirm live status",
+      address: "143 Clarence St, Unit 10, Brampton, ON L6W 1T2",
+      hours: "Mon–Thu 10–10, Fri–Sat 10–11, Sun 11–9",
+      angle: "Diverse menu, honest premium, foot traffic",
+    },
+    {
+      name: "Mayfield Rd",
+      status: "Planned only",
+      address: "6261 Mayfield Rd, Brampton",
+      hours: "TBD",
+      angle: "Do not market as open",
+    },
+  ],
+};

@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lazzat Marketing Strategy Portal
 
-## Getting Started
+Interactive marketing strategy for **Lazzat Grill & Shakes** (Brampton) — same module map as the eFone GTM portal, rebuilt as **Next.js** with **Lazzat gold/black** branding.
 
-First, run the development server:
+## Stack
+- Next.js 15 (App Router) + TypeScript + Tailwind CSS v4
+- Seed data in `src/data/*` (from Lazzat Marketing skill)
+- Interactive tools persist to **localStorage** only — **no Supabase / no backend DB**
 
+## Run locally
 ```bash
+cd lazzat-marketing-portal
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+Open [http://localhost:3000](http://localhost:3000).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Build / Vercel
+```bash
+npm run build
+npm start
+```
+Deploy the `lazzat-marketing-portal` folder to Vercel. No env vars required.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Modules
+Current Situation (live Metricool/IG/TikTok/FB facts) · Goals · Audience · Competitors · SWOT · Positioning · Pricing · Costing · Funnel · Keywords · Organic · Influencer · **Paid Marketing Plan** · Budget · Timeline · KPIs · Growth · Kanban · Calendar · Recycle · Findings · Checklist · Next Actions
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Design
+Gold/black charcoal UI · serif titles only · fixed-width Kanban columns · stat tiles for metrics
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Brand locks (enforced in copy)
+Lava stone (not charcoal) · no “halal” in customer copy · Canadian positioning · documented Aug–Sep 2026 social baselines · Mayfield = planned only
