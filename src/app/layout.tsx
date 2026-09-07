@@ -15,9 +15,9 @@ const display = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Lazzat Marketing Strategy Portal",
+  title: "Lazzat Marketing Assistant",
   description:
-    "Interactive marketing strategy for Lazzat Grill & Shakes — Brampton GTM, local data, no backend database.",
+    "Claude-style RAG assistant for Lazzat Grill & Shakes — brand knowledge, strategy portal, OpenRouter free LLM.",
 };
 
 export default function RootLayout({

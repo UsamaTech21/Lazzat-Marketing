@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { NAV } from "@/data/nav";
 import { brand } from "@/data/brand";
@@ -138,16 +139,25 @@ export function PortalShell({ children, checklistProgress, taskProgress, onReset
           ))}
         </nav>
 
-        {!collapsed && (
-          <div className="border-t border-[var(--border)] p-3">
-            <button type="button" className="btn w-full" onClick={onResetAll}>
-              Reset all to seed
-            </button>
-            <p className="mt-2 text-[10px] leading-snug text-slate-500">
-              Local data only — code seeds + localStorage.
-            </p>
-          </div>
-        )}
+        <div className="border-t border-[var(--border)] p-3 space-y-2">
+          <Link
+            href="/"
+            className={`btn btn-solid w-full justify-center ${collapsed ? "px-0" : ""}`}
+            title="Open Assistant chat"
+          >
+            {collapsed ? "AI" : "← Assistant chat"}
+          </Link>
+          {!collapsed && (
+            <>
+              <button type="button" className="btn w-full" onClick={onResetAll}>
+                Reset all to seed
+              </button>
+              <p className="text-[10px] leading-snug text-slate-500">
+                Local data only — code seeds + localStorage.
+              </p>
+            </>
+          )}
+        </div>
       </aside>
 
       <div className={`min-h-screen transition-all ${collapsed ? "md:pl-[68px]" : "md:pl-[280px]"}`}>
@@ -161,9 +171,14 @@ export function PortalShell({ children, checklistProgress, taskProgress, onReset
               <div className="text-[11px] text-slate-500">Brampton GTM · Interactive strategy</div>
             </div>
           </div>
-          <a className="btn btn-solid" href={brand.site} target="_blank" rel="noreferrer">
-            lazzat.ca
-          </a>
+          <div className="flex items-center gap-2">
+            <Link href="/" className="btn">
+              Assistant
+            </Link>
+            <a className="btn btn-solid" href={brand.site} target="_blank" rel="noreferrer">
+              lazzat.ca
+            </a>
+          </div>
         </header>
         <main className="mx-auto max-w-5xl space-y-8 px-4 py-8 pb-28">{children}</main>
       </div>
