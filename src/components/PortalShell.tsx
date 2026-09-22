@@ -222,6 +222,15 @@ export function PortalShell({
             <span className={collapsed ? "md:hidden" : ""}>Assistant chat →</span>
             <span className={`hidden ${collapsed ? "md:inline" : ""}`}>AI</span>
           </Link>
+          <a
+            className="btn btn-solid w-full justify-center md:hidden"
+            href={brand.site}
+            target="_blank"
+            rel="noreferrer"
+            onClick={closeMobile}
+          >
+            lazzat.ca
+          </a>
           <div className={collapsed ? "md:hidden" : ""}>
             {fullStrategy && onResetAll && (
               <button type="button" className="btn mb-2 w-full" onClick={onResetAll}>
@@ -239,41 +248,47 @@ export function PortalShell({
 
       <div className={`min-h-screen transition-all ${collapsed ? "md:pl-[68px]" : "md:pl-[280px]"}`}>
         <header className="sticky top-0 z-30 border-b border-[var(--border)] bg-white/95 backdrop-blur supports-[padding:max(0px)]:pt-[env(safe-area-inset-top)]">
-          <div className="flex items-center gap-2 px-3 py-2.5 sm:gap-3 sm:px-4 sm:py-3">
+          {/* Mobile: Menu + title + one short toggle only (Assistant / site live in drawer) */}
+          <div className="flex items-center gap-2 px-3 py-2.5 md:hidden">
             <button
               type="button"
-              className="btn shrink-0 px-2.5 md:hidden"
+              className="btn shrink-0 px-2.5"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
             >
               Menu
             </button>
             <div className="min-w-0 flex-1">
-              <div className="truncate text-[14px] font-semibold text-slate-900 sm:text-[15px]">
-                {brand.name}
-              </div>
-              <div className="truncate text-[11px] text-slate-500 sm:text-[12px]">
-                {fullStrategy ? "Full strategy" : "Meta IG · $20/day · $200"}
+              <div className="truncate text-[14px] font-semibold text-slate-900">Lazzat</div>
+              <div className="truncate text-[11px] text-slate-500">
+                {fullStrategy ? "Full strategy" : "$20/day · $200"}
               </div>
             </div>
-            <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
-              <button
-                type="button"
-                className="btn px-2 text-[12px] sm:px-3 sm:text-[13.5px]"
-                onClick={onToggleFullStrategy}
-              >
-                <span className="sm:hidden">{fullStrategy ? "Short" : "Full"}</span>
-                <span className="hidden sm:inline">{fullStrategy ? "Short portal" : "Full strategy"}</span>
+            <button
+              type="button"
+              className="btn shrink-0 whitespace-nowrap px-2.5 text-[12px]"
+              onClick={onToggleFullStrategy}
+            >
+              {fullStrategy ? "Short" : "Full"}
+            </button>
+          </div>
+
+          {/* Desktop / tablet header */}
+          <div className="hidden items-center gap-3 px-4 py-3 md:flex">
+            <div className="min-w-0 flex-1">
+              <div className="truncate text-[15px] font-semibold text-slate-900">{brand.name}</div>
+              <div className="truncate text-[12px] text-slate-500">
+                {fullStrategy ? "Full strategy" : "First Meta IG · $20/day · $200"}
+              </div>
+            </div>
+            <div className="flex shrink-0 items-center gap-2">
+              <button type="button" className="btn" onClick={onToggleFullStrategy}>
+                {fullStrategy ? "Short portal" : "Full strategy"}
               </button>
-              <Link href="/assistant" className="btn hidden px-2.5 sm:inline-flex">
-                AI
+              <Link href="/assistant" className="btn">
+                Assistant
               </Link>
-              <a
-                className="btn btn-solid hidden px-2.5 sm:inline-flex"
-                href={brand.site}
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a className="btn btn-solid" href={brand.site} target="_blank" rel="noreferrer">
                 lazzat.ca
               </a>
             </div>
