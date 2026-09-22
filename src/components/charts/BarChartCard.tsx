@@ -46,8 +46,8 @@ export function BarChartCard({
                 <YAxis
                   type="category"
                   dataKey="name"
-                  width={88}
-                  tick={{ fontSize: 12, fill: "#475569" }}
+                  width={72}
+                  tick={{ fontSize: 11, fill: "#475569" }}
                 />
               </>
             ) : (

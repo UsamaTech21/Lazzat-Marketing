@@ -55,6 +55,8 @@ body {
   font-family: var(--font-body), system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
 .card {
@@ -318,6 +320,48 @@ table.data tr:last-child td {
   }
 
   .section-panel {
-    padding: 1.25rem 1.15rem 1.4rem;
+    padding: 1.1rem 0.95rem 1.25rem;
+    border-radius: 14px;
+  }
+
+  .stat-tile {
+    padding: 0.95rem 1rem;
+  }
+
+  .stat-tile .stat-value {
+    font-size: 1.45rem;
+  }
+
+  .card {
+    padding: 1rem 1.05rem;
+  }
+
+  .chart-card {
+    padding: 0.85rem 0.9rem 0.6rem;
+  }
+
+  table.data {
+    font-size: 13px;
+  }
+
+  table.data th,
+  table.data td {
+    padding: 0.55rem 0.65rem;
+  }
+
+  .kanban-col {
+    flex: 0 0 min(240px, 78vw);
+    width: min(240px, 78vw);
+  }
+}
+
+@media (max-width: 480px) {
+  .section-panel {
+    padding: 0.95rem 0.8rem 1.1rem;
+  }
+
+  .btn {
+    padding: 0.45rem 0.7rem;
+    font-size: 12.5px;
   }
 }

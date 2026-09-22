@@ -45,6 +45,15 @@ export function PortalShell({
     return () => obs.disconnect();
   }, [nav]);
 
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [mobileOpen]);
+
   const filteredNav = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return nav;
@@ -66,35 +75,43 @@ export function PortalShell({
     return [...map.entries()];
   }, [filteredNav]);
 
+  const closeMobile = () => setMobileOpen(false);
+
   return (
-    <div className="min-h-screen bg-[var(--background)]">
+    <div className="min-h-screen overflow-x-hidden bg-[var(--background)]">
       {mobileOpen && (
         <button
           type="button"
           className="fixed inset-0 z-40 bg-slate-900/40 md:hidden"
           aria-label="Close menu"
-          onClick={() => setMobileOpen(false)}
+          onClick={closeMobile}
         />
       )}
 
       <aside
-        className={`fixed inset-y-0 left-0 z-50 flex flex-col border-r border-[var(--border)] bg-white transition-all duration-200 ${
-          collapsed ? "w-[68px]" : "w-[280px]"
-        } ${mobileOpen ? "translate-x-0" : "max-md:-translate-x-full"} md:translate-x-0`}
+        className={`fixed inset-y-0 left-0 z-50 flex w-[min(300px,88vw)] flex-col border-r border-[var(--border)] bg-white transition-transform duration-200 md:transition-[width] ${
+          collapsed ? "md:w-[68px]" : "md:w-[280px]"
+        } ${mobileOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}`}
       >
-        <div className={`border-b border-[var(--border)] ${collapsed ? "p-3" : "px-4 py-4"}`}>
-          <div className={`flex items-center gap-3 ${collapsed ? "justify-center" : ""}`}>
+        <div className={`border-b border-[var(--border)] ${collapsed ? "md:p-3" : "px-4 py-4"}`}>
+          <div className={`flex items-center gap-3 ${collapsed ? "md:justify-center" : ""}`}>
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#1d4ed8] text-sm font-bold text-white">
               L
             </div>
-            {!collapsed && (
-              <div className="min-w-0 flex-1">
-                <div className="text-base font-semibold tracking-tight text-slate-900">Lazzat</div>
-                <div className="text-[11px] uppercase tracking-[0.12em] text-slate-500">
-                  Marketing Portal
-                </div>
+            <div className={`min-w-0 flex-1 ${collapsed ? "md:hidden" : ""}`}>
+              <div className="text-base font-semibold tracking-tight text-slate-900">Lazzat</div>
+              <div className="text-[11px] uppercase tracking-[0.12em] text-slate-500">
+                Marketing Portal
               </div>
-            )}
+            </div>
+            <button
+              type="button"
+              className="btn btn-ghost h-8 w-8 shrink-0 p-0 text-sm md:hidden"
+              onClick={closeMobile}
+              aria-label="Close menu"
+            >
+              ✕
+            </button>
             <button
               type="button"
               className="btn btn-ghost hidden h-7 w-7 shrink-0 p-0 text-xs md:inline-flex"
@@ -104,25 +121,23 @@ export function PortalShell({
               {collapsed ? "»" : "«"}
             </button>
           </div>
-          {!collapsed && (
-            <>
-              <p className="mt-2 truncate text-[12px] text-slate-500">{brand.taglines.webHero}</p>
-              <label className="mt-3 block">
-                <span className="sr-only">Jump to section</span>
-                <input
-                  type="search"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Jump to section…"
-                  className="input w-full text-[13px]"
-                />
-              </label>
-            </>
-          )}
+          <div className={collapsed ? "md:hidden" : ""}>
+            <p className="mt-2 truncate text-[12px] text-slate-500">{brand.taglines.webHero}</p>
+            <label className="mt-3 block">
+              <span className="sr-only">Jump to section</span>
+              <input
+                type="search"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Jump to section…"
+                className="input w-full text-[13px]"
+              />
+            </label>
+          </div>
         </div>
 
-        {fullStrategy && !collapsed && (
-          <div className="space-y-2 border-b border-[var(--border)] px-4 py-3">
+        {fullStrategy && (
+          <div className={`space-y-2 border-b border-[var(--border)] px-4 py-3 ${collapsed ? "md:hidden" : ""}`}>
             <div className="flex justify-between text-[11px] uppercase tracking-wider text-slate-500">
               <span>Checklist</span>
               <span>{checklistProgress}%</span>
@@ -140,27 +155,31 @@ export function PortalShell({
           </div>
         )}
 
-        <nav className="flex-1 overflow-y-auto px-2 py-3">
-          {groups.length === 0 && !collapsed && (
-            <p className="px-2 text-[13px] text-slate-400">No sections match “{query}”</p>
+        <nav className="flex-1 overflow-y-auto overscroll-contain px-2 py-3">
+          {groups.length === 0 && (
+            <p className={`px-2 text-[13px] text-slate-400 ${collapsed ? "md:hidden" : ""}`}>
+              No sections match “{query}”
+            </p>
           )}
           {groups.map(([group, items]) => (
             <div key={group} className="mb-3">
-              {!collapsed && (
-                <div className="px-2 pb-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-400">
-                  {group}
-                </div>
-              )}
+              <div
+                className={`px-2 pb-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-400 ${
+                  collapsed ? "md:hidden" : ""
+                }`}
+              >
+                {group}
+              </div>
               {items.map((item) => (
                 <a
                   key={item.id}
                   href={`#${item.id}`}
-                  onClick={() => setMobileOpen(false)}
-                  className={`mb-0.5 flex items-center gap-2 rounded-lg px-2 py-2 text-[13.5px] transition-colors ${
+                  onClick={closeMobile}
+                  className={`mb-0.5 flex items-center gap-2 rounded-lg px-2 py-2.5 text-[13.5px] transition-colors md:py-2 ${
                     active === item.id
                       ? "border border-blue-200 bg-blue-50 font-medium text-blue-800"
                       : "border border-transparent text-slate-600 hover:bg-slate-50"
-                  } ${collapsed ? "justify-center" : ""}`}
+                  } ${collapsed ? "md:justify-center" : ""}`}
                   title={item.label}
                 >
                   <span
@@ -170,72 +189,99 @@ export function PortalShell({
                   >
                     {item.n}
                   </span>
-                  {!collapsed && <span className="leading-snug">{item.label}</span>}
+                  <span className={`leading-snug ${collapsed ? "md:hidden" : ""}`}>{item.label}</span>
                 </a>
               ))}
             </div>
           ))}
         </nav>
 
-        <div className="space-y-2 border-t border-[var(--border)] p-3">
+        <div className="space-y-2 border-t border-[var(--border)] p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
           <button
             type="button"
-            className={`btn w-full justify-center ${fullStrategy ? "" : "btn-solid"} ${collapsed ? "px-0" : ""}`}
-            onClick={onToggleFullStrategy}
+            className={`btn w-full justify-center ${fullStrategy ? "" : "btn-solid"}`}
+            onClick={() => {
+              onToggleFullStrategy();
+              closeMobile();
+            }}
             title={fullStrategy ? "Back to short $200 flight portal" : "Unhide full strategy"}
           >
-            {collapsed ? (fullStrategy ? "Short" : "Full") : fullStrategy ? "← Short portal" : "Unhide full strategy"}
+            <span className={collapsed ? "md:hidden" : ""}>
+              {fullStrategy ? "← Short portal" : "Unhide full strategy"}
+            </span>
+            <span className={`hidden ${collapsed ? "md:inline" : ""}`}>
+              {fullStrategy ? "Short" : "Full"}
+            </span>
           </button>
           <Link
             href="/assistant"
-            className={`btn w-full justify-center ${collapsed ? "px-0" : ""}`}
+            className="btn w-full justify-center"
             title="Open Assistant chat"
+            onClick={closeMobile}
           >
-            {collapsed ? "AI" : "Assistant chat →"}
+            <span className={collapsed ? "md:hidden" : ""}>Assistant chat →</span>
+            <span className={`hidden ${collapsed ? "md:inline" : ""}`}>AI</span>
           </Link>
-          {!collapsed && (
-            <>
-              {fullStrategy && onResetAll && (
-                <button type="button" className="btn w-full" onClick={onResetAll}>
-                  Reset tools to seed
-                </button>
-              )}
-              <p className="text-[11px] leading-snug text-slate-500">
-                {fullStrategy
-                  ? "Full strategy visible — jump any section in the nav."
-                  : "Short view · First Meta IG flight · $200 / 10 days"}
-              </p>
-            </>
-          )}
+          <div className={collapsed ? "md:hidden" : ""}>
+            {fullStrategy && onResetAll && (
+              <button type="button" className="btn mb-2 w-full" onClick={onResetAll}>
+                Reset tools to seed
+              </button>
+            )}
+            <p className="text-[11px] leading-snug text-slate-500">
+              {fullStrategy
+                ? "Full strategy visible — jump any section in the nav."
+                : "Short view · First Meta IG flight · $200 / 10 days"}
+            </p>
+          </div>
         </div>
       </aside>
 
       <div className={`min-h-screen transition-all ${collapsed ? "md:pl-[68px]" : "md:pl-[280px]"}`}>
-        <header className="sticky top-0 z-30 flex items-center justify-between border-b border-[var(--border)] bg-white/90 px-4 py-3 backdrop-blur">
-          <div className="flex items-center gap-3">
-            <button type="button" className="btn md:hidden" onClick={() => setMobileOpen(true)}>
+        <header className="sticky top-0 z-30 border-b border-[var(--border)] bg-white/95 backdrop-blur supports-[padding:max(0px)]:pt-[env(safe-area-inset-top)]">
+          <div className="flex items-center gap-2 px-3 py-2.5 sm:gap-3 sm:px-4 sm:py-3">
+            <button
+              type="button"
+              className="btn shrink-0 px-2.5 md:hidden"
+              onClick={() => setMobileOpen(true)}
+              aria-label="Open menu"
+            >
               Menu
             </button>
-            <div>
-              <div className="text-[15px] font-semibold text-slate-900">{brand.name}</div>
-              <div className="text-[12px] text-slate-500">
-                {fullStrategy ? "Full strategy" : "First Meta IG · $20/day · $200"}
+            <div className="min-w-0 flex-1">
+              <div className="truncate text-[14px] font-semibold text-slate-900 sm:text-[15px]">
+                {brand.name}
+              </div>
+              <div className="truncate text-[11px] text-slate-500 sm:text-[12px]">
+                {fullStrategy ? "Full strategy" : "Meta IG · $20/day · $200"}
               </div>
             </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <button type="button" className="btn" onClick={onToggleFullStrategy}>
-              {fullStrategy ? "Short portal" : "Full strategy"}
-            </button>
-            <Link href="/assistant" className="btn">
-              Assistant
-            </Link>
-            <a className="btn btn-solid" href={brand.site} target="_blank" rel="noreferrer">
-              lazzat.ca
-            </a>
+            <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+              <button
+                type="button"
+                className="btn px-2 text-[12px] sm:px-3 sm:text-[13.5px]"
+                onClick={onToggleFullStrategy}
+              >
+                <span className="sm:hidden">{fullStrategy ? "Short" : "Full"}</span>
+                <span className="hidden sm:inline">{fullStrategy ? "Short portal" : "Full strategy"}</span>
+              </button>
+              <Link href="/assistant" className="btn hidden px-2.5 sm:inline-flex">
+                AI
+              </Link>
+              <a
+                className="btn btn-solid hidden px-2.5 sm:inline-flex"
+                href={brand.site}
+                target="_blank"
+                rel="noreferrer"
+              >
+                lazzat.ca
+              </a>
+            </div>
           </div>
         </header>
-        <main className="mx-auto max-w-5xl space-y-10 px-4 py-10 pb-28">{children}</main>
+        <main className="mx-auto max-w-5xl space-y-6 px-3 py-6 pb-24 sm:space-y-10 sm:px-4 sm:py-10 sm:pb-28">
+          {children}
+        </main>
       </div>
     </div>
   );
@@ -253,17 +299,19 @@ export function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="section-enter section-panel scroll-mt-24">
-      <div className="mb-6 border-b border-[var(--border)] pb-5">
+    <section id={id} className="section-enter section-panel scroll-mt-20 sm:scroll-mt-24">
+      <div className="mb-4 border-b border-[var(--border)] pb-4 sm:mb-6 sm:pb-5">
         <div className="badge mb-2.5">Lazzat Strategy</div>
-        <h2 className="font-[family-name:var(--font-display)] text-[1.65rem] font-semibold leading-tight tracking-tight text-slate-900 md:text-[1.9rem]">
+        <h2 className="font-[family-name:var(--font-display)] text-[1.35rem] font-semibold leading-tight tracking-tight text-slate-900 sm:text-[1.65rem] md:text-[1.9rem]">
           {title}
         </h2>
         {subtitle && (
-          <p className="mt-2.5 max-w-3xl text-[15px] leading-relaxed text-slate-500">{subtitle}</p>
+          <p className="mt-2 max-w-3xl text-[13.5px] leading-relaxed text-slate-500 sm:mt-2.5 sm:text-[15px]">
+            {subtitle}
+          </p>
         )}
       </div>
-      {children}
+      <div className="min-w-0 overflow-x-auto">{children}</div>
     </section>
   );
 }
@@ -278,10 +326,10 @@ export function StatTile({
   sub?: string;
 }) {
   return (
-    <div className="stat-tile">
+    <div className="stat-tile min-w-0">
       <div className="stat-label">{label}</div>
-      <div className="stat-value">{value}</div>
-      {sub && <div className="stat-sub">{sub}</div>}
+      <div className="stat-value break-words">{value}</div>
+      {sub && <div className="stat-sub break-words">{sub}</div>}
     </div>
   );
 }
