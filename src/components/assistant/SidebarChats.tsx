@@ -77,7 +77,7 @@ export function SidebarChats({ sessions, activeId, onSelect, onNew, onDelete }: 
 
         <div className="shrink-0 border-t border-slate-200 p-3">
           <Link
-            href="/strategy"
+            href="/"
             className="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-white"
           >
             <span>Strategy portal</span>

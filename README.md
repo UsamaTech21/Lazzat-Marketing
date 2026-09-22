@@ -1,9 +1,10 @@
 # Lazzat Marketing Portal + RAG Assistant
 
-Claude-style chat assistant for **Lazzat Grill & Shakes** (Brampton), plus the interactive strategy portal.
+Interactive strategy portal for **Lazzat Grill & Shakes** (Brampton), plus a Claude-style RAG assistant.
 
-- **`/`** — Marketing Assistant (RAG + OpenRouter free LLM)
-- **`/strategy`** — Full strategy portal (Current Situation, Paid Plan, Kanban, etc.)
+- **`/`** — Strategy portal (Current Situation, charts, Paid Plan, Kanban, IG campaign…)
+- **`/strategy`** — Same strategy app (bookmark alias)
+- **`/assistant`** — Marketing Assistant (RAG + OpenRouter free LLM)
 
 ## Stack
 - Next.js 15 (App Router) + TypeScript + Tailwind CSS v4
@@ -52,3 +53,11 @@ Deploy the `lazzat-marketing-portal` folder. Set `OPENROUTER_API_KEY` in the hos
 
 ## Brand locks
 Lava stone (not charcoal) · no “halal” in customer copy · Canadian positioning · cite Current Situation numbers only when in retrieved context · Mayfield = planned only
+
+## IG Paid Campaign (Sir Deck)
+See `campaigns/ig-followers-offer/`:
+- `SIR-STRATEGY.md` — 1-pager for leadership
+- `ADS-MANAGER-SETUP.md` — step-by-step Ads Manager
+- `00-INPUTS.md` — defaults + screenshot checklist
+
+Also in portal: **/strategy#ig-campaign**

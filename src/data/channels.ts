@@ -46,24 +46,11 @@ export const influencer = {
 
 export const budget = {
   title: "Budget & Resource Plan",
-  note: "Illustrative allocation — replace with finance-approved CAD. Paid band detail lives in Paid Marketing Plan.",
-  lines: [
-    { line: "Content production (photo/video/edit)", pct: 30 },
-    { line: "Paid social / search tests", pct: 28 },
-    { line: "Influencer tastings + sampling", pct: 10 },
-    { line: "GMB / packaging / QR / print", pct: 10 },
-    { line: "SEO / Medium / tools", pct: 10 },
-    { line: "Contingency + stunts", pct: 12 },
-  ],
-  team: [
-    "Sir Waqas — final approval",
-    "Ahmed — digital lead",
-    "Khadija — graphics",
-    "Zohaib — video",
-    "Ali Hamza — SEO",
-    "Soha — social data + hospitality",
-    "Usama — video edit / portal",
-  ],
+  status: "pending" as const,
+  note: "Full Budget & Resource Plan is not set yet.",
+  pendingMessage:
+    "Pending finance / ops allocation. Active paid spend right now is Flight 1 only: $200 / 10 days ($20/day) — see Paid Marketing Plan.",
+  lines: [] as { line: string; pct: number }[],
 };
 
 export const timeline = {

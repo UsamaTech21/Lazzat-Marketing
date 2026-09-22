@@ -5,6 +5,7 @@ export const STORAGE_KEYS = {
   calendar: "lazzat-portal-calendar",
   costing: "lazzat-portal-costing",
   costingAssumptions: "lazzat-portal-costing-assumptions",
+  fullStrategy: "lazzat-portal-full-strategy",
 } as const;
 
 export function loadJson<T>(key: string, fallback: T): T {

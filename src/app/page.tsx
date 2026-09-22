@@ -1,5 +1,5 @@
-import { AssistantShell } from "@/components/assistant/AssistantShell";
+import { StrategyApp } from "@/components/StrategyApp";
 
 export default function Home() {
-  return <AssistantShell />;
+  return <StrategyApp />;
 }

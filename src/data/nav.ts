@@ -5,9 +5,19 @@ export type NavItem = {
   n: number;
 };
 
-export const NAV: NavItem[] = [
+/** Default Sir-facing view — $200 first Meta flight */
+export const SHORT_NAV: NavItem[] = [
+  { id: "current", label: "Current Situation", group: "Snapshot", n: 1 },
+  { id: "goals", label: "Goals", group: "Snapshot", n: 2 },
+  { id: "paid", label: "Paid Marketing Plan", group: "Flight", n: 3 },
+  { id: "budget", label: "Budget & Resource Plan", group: "Flight", n: 4 },
+  { id: "next", label: "Next Actions", group: "Flight", n: 5 },
+];
+
+/** Full strategy archive — unhide via portal toggle */
+export const FULL_NAV: NavItem[] = [
   { id: "current", label: "Current Situation", group: "0 · Snapshot", n: 0 },
-  { id: "goals", label: "Executive Summary + Goals", group: "1 · Strategy", n: 1 },
+  { id: "goals", label: "Goals", group: "1 · Strategy", n: 1 },
   { id: "audience", label: "Target Audience / ICPs", group: "1 · Strategy", n: 2 },
   { id: "competitors", label: "Competitor Research", group: "1 · Strategy", n: 3 },
   { id: "swot", label: "SWOT Analysis", group: "1 · Strategy", n: 4 },
@@ -30,3 +40,6 @@ export const NAV: NavItem[] = [
   { id: "checklist", label: "Progress Checklist", group: "5 · Control", n: 21 },
   { id: "next", label: "Next Actions", group: "5 · Control", n: 22 },
 ];
+
+/** @deprecated use SHORT_NAV / FULL_NAV */
+export const NAV = SHORT_NAV;

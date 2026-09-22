@@ -2,23 +2,35 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { NAV } from "@/data/nav";
+import type { NavItem } from "@/data/nav";
 import { brand } from "@/data/brand";
 
 type Props = {
   children: React.ReactNode;
-  checklistProgress: number;
-  taskProgress: number;
-  onResetAll: () => void;
+  nav: NavItem[];
+  fullStrategy: boolean;
+  onToggleFullStrategy: () => void;
+  checklistProgress?: number;
+  taskProgress?: number;
+  onResetAll?: () => void;
 };
 
-export function PortalShell({ children, checklistProgress, taskProgress, onResetAll }: Props) {
+export function PortalShell({
+  children,
+  nav,
+  fullStrategy,
+  onToggleFullStrategy,
+  checklistProgress = 0,
+  taskProgress = 0,
+  onResetAll,
+}: Props) {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [active, setActive] = useState("current");
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
-    const sections = NAV.map((n) => document.getElementById(n.id)).filter(Boolean) as HTMLElement[];
+    const sections = nav.map((n) => document.getElementById(n.id)).filter(Boolean) as HTMLElement[];
     if (!sections.length) return;
     const obs = new IntersectionObserver(
       (entries) => {
@@ -31,17 +43,28 @@ export function PortalShell({ children, checklistProgress, taskProgress, onReset
     );
     sections.forEach((s) => obs.observe(s));
     return () => obs.disconnect();
-  }, []);
+  }, [nav]);
+
+  const filteredNav = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return nav;
+    return nav.filter(
+      (item) =>
+        item.label.toLowerCase().includes(q) ||
+        item.group.toLowerCase().includes(q) ||
+        item.id.toLowerCase().includes(q)
+    );
+  }, [query, nav]);
 
   const groups = useMemo(() => {
-    const map = new Map<string, typeof NAV>();
-    NAV.forEach((item) => {
+    const map = new Map<string, NavItem[]>();
+    filteredNav.forEach((item) => {
       const list = map.get(item.group) ?? [];
       list.push(item);
       map.set(item.group, list);
     });
     return [...map.entries()];
-  }, []);
+  }, [filteredNav]);
 
   return (
     <div className="min-h-screen bg-[var(--background)]">
@@ -61,13 +84,13 @@ export function PortalShell({ children, checklistProgress, taskProgress, onReset
       >
         <div className={`border-b border-[var(--border)] ${collapsed ? "p-3" : "px-4 py-4"}`}>
           <div className={`flex items-center gap-3 ${collapsed ? "justify-center" : ""}`}>
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#1d4ed8] text-sm font-bold text-white">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#1d4ed8] text-sm font-bold text-white">
               L
             </div>
             {!collapsed && (
               <div className="min-w-0 flex-1">
-                <div className="text-[15px] font-semibold tracking-tight text-slate-900">Lazzat</div>
-                <div className="text-[10px] uppercase tracking-[0.12em] text-slate-500">
+                <div className="text-base font-semibold tracking-tight text-slate-900">Lazzat</div>
+                <div className="text-[11px] uppercase tracking-[0.12em] text-slate-500">
                   Marketing Portal
                 </div>
               </div>
@@ -82,13 +105,25 @@ export function PortalShell({ children, checklistProgress, taskProgress, onReset
             </button>
           </div>
           {!collapsed && (
-            <p className="mt-2 truncate text-[11px] text-slate-500">{brand.taglines.webHero}</p>
+            <>
+              <p className="mt-2 truncate text-[12px] text-slate-500">{brand.taglines.webHero}</p>
+              <label className="mt-3 block">
+                <span className="sr-only">Jump to section</span>
+                <input
+                  type="search"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder="Jump to section…"
+                  className="input w-full text-[13px]"
+                />
+              </label>
+            </>
           )}
         </div>
 
-        {!collapsed && (
+        {fullStrategy && !collapsed && (
           <div className="space-y-2 border-b border-[var(--border)] px-4 py-3">
-            <div className="flex justify-between text-[10px] uppercase tracking-wider text-slate-500">
+            <div className="flex justify-between text-[11px] uppercase tracking-wider text-slate-500">
               <span>Checklist</span>
               <span>{checklistProgress}%</span>
             </div>
@@ -98,7 +133,7 @@ export function PortalShell({ children, checklistProgress, taskProgress, onReset
                 style={{ width: `${checklistProgress}%` }}
               />
             </div>
-            <div className="flex justify-between text-[11px] text-slate-500">
+            <div className="flex justify-between text-[12px] text-slate-500">
               <span>Tasks done</span>
               <span>{taskProgress}%</span>
             </div>
@@ -106,10 +141,13 @@ export function PortalShell({ children, checklistProgress, taskProgress, onReset
         )}
 
         <nav className="flex-1 overflow-y-auto px-2 py-3">
+          {groups.length === 0 && !collapsed && (
+            <p className="px-2 text-[13px] text-slate-400">No sections match “{query}”</p>
+          )}
           {groups.map(([group, items]) => (
             <div key={group} className="mb-3">
               {!collapsed && (
-                <div className="px-2 pb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-slate-400">
+                <div className="px-2 pb-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-400">
                   {group}
                 </div>
               )}
@@ -118,7 +156,7 @@ export function PortalShell({ children, checklistProgress, taskProgress, onReset
                   key={item.id}
                   href={`#${item.id}`}
                   onClick={() => setMobileOpen(false)}
-                  className={`mb-0.5 flex items-center gap-2 rounded-lg px-2 py-1.5 text-[12.5px] transition-colors ${
+                  className={`mb-0.5 flex items-center gap-2 rounded-lg px-2 py-2 text-[13.5px] transition-colors ${
                     active === item.id
                       ? "border border-blue-200 bg-blue-50 font-medium text-blue-800"
                       : "border border-transparent text-slate-600 hover:bg-slate-50"
@@ -126,7 +164,7 @@ export function PortalShell({ children, checklistProgress, taskProgress, onReset
                   title={item.label}
                 >
                   <span
-                    className={`flex h-5 w-5 shrink-0 items-center justify-center rounded text-[10px] font-bold ${
+                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded text-[11px] font-bold ${
                       active === item.id ? "bg-blue-600 text-white" : "bg-slate-100 text-slate-500"
                     }`}
                   >
@@ -139,21 +177,33 @@ export function PortalShell({ children, checklistProgress, taskProgress, onReset
           ))}
         </nav>
 
-        <div className="border-t border-[var(--border)] p-3 space-y-2">
+        <div className="space-y-2 border-t border-[var(--border)] p-3">
+          <button
+            type="button"
+            className={`btn w-full justify-center ${fullStrategy ? "" : "btn-solid"} ${collapsed ? "px-0" : ""}`}
+            onClick={onToggleFullStrategy}
+            title={fullStrategy ? "Back to short $200 flight portal" : "Unhide full strategy"}
+          >
+            {collapsed ? (fullStrategy ? "Short" : "Full") : fullStrategy ? "← Short portal" : "Unhide full strategy"}
+          </button>
           <Link
-            href="/"
-            className={`btn btn-solid w-full justify-center ${collapsed ? "px-0" : ""}`}
+            href="/assistant"
+            className={`btn w-full justify-center ${collapsed ? "px-0" : ""}`}
             title="Open Assistant chat"
           >
-            {collapsed ? "AI" : "← Assistant chat"}
+            {collapsed ? "AI" : "Assistant chat →"}
           </Link>
           {!collapsed && (
             <>
-              <button type="button" className="btn w-full" onClick={onResetAll}>
-                Reset all to seed
-              </button>
-              <p className="text-[10px] leading-snug text-slate-500">
-                Local data only — code seeds + localStorage.
+              {fullStrategy && onResetAll && (
+                <button type="button" className="btn w-full" onClick={onResetAll}>
+                  Reset tools to seed
+                </button>
+              )}
+              <p className="text-[11px] leading-snug text-slate-500">
+                {fullStrategy
+                  ? "Full strategy visible — jump any section in the nav."
+                  : "Short view · First Meta IG flight · $200 / 10 days"}
               </p>
             </>
           )}
@@ -161,18 +211,23 @@ export function PortalShell({ children, checklistProgress, taskProgress, onReset
       </aside>
 
       <div className={`min-h-screen transition-all ${collapsed ? "md:pl-[68px]" : "md:pl-[280px]"}`}>
-        <header className="sticky top-0 z-30 flex items-center justify-between border-b border-[var(--border)] bg-white/90 px-4 py-2.5 backdrop-blur">
+        <header className="sticky top-0 z-30 flex items-center justify-between border-b border-[var(--border)] bg-white/90 px-4 py-3 backdrop-blur">
           <div className="flex items-center gap-3">
             <button type="button" className="btn md:hidden" onClick={() => setMobileOpen(true)}>
               Menu
             </button>
             <div>
-              <div className="text-[13px] font-semibold text-slate-900">{brand.name}</div>
-              <div className="text-[11px] text-slate-500">Brampton GTM · Interactive strategy</div>
+              <div className="text-[15px] font-semibold text-slate-900">{brand.name}</div>
+              <div className="text-[12px] text-slate-500">
+                {fullStrategy ? "Full strategy" : "First Meta IG · $20/day · $200"}
+              </div>
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <Link href="/" className="btn">
+            <button type="button" className="btn" onClick={onToggleFullStrategy}>
+              {fullStrategy ? "Short portal" : "Full strategy"}
+            </button>
+            <Link href="/assistant" className="btn">
               Assistant
             </Link>
             <a className="btn btn-solid" href={brand.site} target="_blank" rel="noreferrer">
@@ -180,7 +235,7 @@ export function PortalShell({ children, checklistProgress, taskProgress, onReset
             </a>
           </div>
         </header>
-        <main className="mx-auto max-w-5xl space-y-8 px-4 py-8 pb-28">{children}</main>
+        <main className="mx-auto max-w-5xl space-y-10 px-4 py-10 pb-28">{children}</main>
       </div>
     </div>
   );
@@ -198,13 +253,15 @@ export function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="section-enter section-panel scroll-mt-20">
-      <div className="mb-5 border-b border-[var(--border)] pb-4">
-        <div className="badge mb-2">Lazzat Strategy</div>
-        <h2 className="text-[1.5rem] font-semibold leading-tight tracking-tight text-slate-900 md:text-[1.75rem]">
+    <section id={id} className="section-enter section-panel scroll-mt-24">
+      <div className="mb-6 border-b border-[var(--border)] pb-5">
+        <div className="badge mb-2.5">Lazzat Strategy</div>
+        <h2 className="font-[family-name:var(--font-display)] text-[1.65rem] font-semibold leading-tight tracking-tight text-slate-900 md:text-[1.9rem]">
           {title}
         </h2>
-        {subtitle && <p className="mt-2 max-w-3xl text-[13px] text-slate-500">{subtitle}</p>}
+        {subtitle && (
+          <p className="mt-2.5 max-w-3xl text-[15px] leading-relaxed text-slate-500">{subtitle}</p>
+        )}
       </div>
       {children}
     </section>

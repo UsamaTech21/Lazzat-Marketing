@@ -94,13 +94,10 @@ export const findings = {
 };
 
 export const nextActions = [
-  { owner: "Ahmed / Media", action: "Launch Ads Manager test ($150–300) on top 2 lava-stone Reels · 3–5 km McVean" },
-  { owner: "Ops / Kamran", action: "Finalize GMB + review response SOP with Fatma backup" },
-  { owner: "Soha / Marketer", action: "Ship bill-time follow-and-review discount test" },
-  { owner: "Designer / Zohaib", action: "Cut 3 Reel variants with follow+order end cards for Tue reset" },
-  { owner: "Writer / Hamza", action: "Publish 2 compliance-safe local blogs this week" },
-  { owner: "Shahid", action: "Resolve steak-wrap naming + public sauce map" },
-  { owner: "Web", action: "Catering form live + NAP pass" },
+  { owner: "Media", action: "Publish Flight 1: $20/day · $200 · 10 days · 3 creatives · McVean 5 km + Clarence 8 km" },
+  { owner: "Media", action: "Track live CPC, IG profile visits, follower growth daily" },
+  { owner: "Ops", action: "Confirm in-store 5% claim steps match static creative" },
+  { owner: "Sir / Media", action: "After Day 10 — review live numbers before any scale" },
 ];
 
 export const culturalCalendar = [

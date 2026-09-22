@@ -1,24 +1,20 @@
 export const goals = {
-  title: "Executive Summary + Goals",
+  title: "Goals",
   oneLiner:
-    "Win Brampton families and young Canada with lava-stone grilled bowls and real-fruit shakes — build trust via GMB + organic content first, then scale paid and catering.",
-  phaseOutcomes: [
-    { phase: "Foundation", window: "Now", outcome: "Compliance-safe content engine, GMB reviews rising, both live locations NAP-clean, influencer pipeline local." },
-    { phase: "Amplify", window: "Months 2–3", outcome: "Consistent Reels, Medium SEO, delivery reorder, first corporate catering." },
-    { phase: "Scale", window: "Months 4–6", outcome: "Recognized Brampton grill brand, 4.5★ trajectory, franchise planning inputs." },
-  ],
+    "This flight: grow Instagram followers and promote lifetime 5% off to drive direct orders and store footfall.",
   primaryGoals: [
-    "Orders + takeaway/delivery revenue at McVean (and Clarence when confirmed live)",
-    "GMB review velocity + star rating trust (≥4.2 threshold)",
-    "Instagram/TikTok reach with 4%+ engagement target",
+    "Instagram follower growth (Meta IG ads)",
+    "Lifetime 5% off awareness + clear claim steps",
+    "Direct orders + store footfall from local geo",
   ],
   secondaryGoals: [
-    "Medium/local SEO organic sessions",
-    "Catering pipeline (1-day advance, e-transfer)",
-    "Loyalty / WhatsApp list growth",
+    "Collect live CPC / profile visits / follows for Flight 2",
   ],
-  franchiseHorizon:
-    "10-location Canada vision: Brampton → Mississauga, Toronto, Surrey, Edmonton, Calgary, Ottawa, Hamilton, Windsor, Vancouver.",
+  flight: {
+    spend: "$200",
+    daily: "$20/day",
+    days: 10,
+  },
 };
 
 export const audience = {

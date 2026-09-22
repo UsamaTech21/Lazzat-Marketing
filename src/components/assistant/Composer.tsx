@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -144,7 +145,7 @@ export function Composer({
               type="button"
               onClick={() => {
                 onModeChange("strategy");
-                router.push("/strategy");
+                router.push("/");
               }}
               className={`rounded-full px-3 py-1 text-xs font-medium ${
                 mode === "strategy" ? "bg-slate-900 text-white" : "text-slate-500 hover:bg-slate-50"
@@ -189,9 +190,9 @@ export function Composer({
       </div>
 
       <p className="mt-2 text-center text-[11px] text-slate-400 md:hidden">
-        <a href="/strategy" className="underline">
+        <Link href="/" className="underline">
           Open strategy portal
-        </a>
+        </Link>
       </p>
     </div>
   );
