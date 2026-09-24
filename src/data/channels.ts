@@ -37,7 +37,7 @@ export const influencer = {
     "Personal DM — no rigid script",
     "Complimentary tasting for two",
     "Ask to add @lazzat.ca as collaborator on reel",
-    "Soha handles on-ground hospitality when remote",
+    "Usama handles influencer outreach + collab follow-up",
     "WhatsApp follow-up",
     "Early phase: food only — no cash",
   ],

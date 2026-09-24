@@ -22,7 +22,7 @@ export const tasksSeed: Task[] = [
   { id: "t6", teamRole: "marketer", title: "5 Brampton micro-influencer DMs", description: "Tasting for two; @lazzat.ca collab", status: "todo", priority: "high", weekNumber: 2 },
   { id: "t7", teamRole: "seo_dev", title: "NAP audit across GMB + delivery", description: "Exact address strings", status: "todo", priority: "critical", weekNumber: 1 },
   { id: "t8", teamRole: "seo_dev", title: "Medium post: meal box vs protein box", description: "Internal links to menu/order", status: "review", priority: "medium", weekNumber: 2 },
-  { id: "t9", teamRole: "designer", title: "Reel cut: lava stone close-ups", description: "9:16 + captions", status: "todo", priority: "high", weekNumber: 2 },
+  { id: "t9", teamRole: "marketer", title: "Reel cut: lava stone close-ups", description: "9:16 + captions · Usama edit", status: "todo", priority: "high", weekNumber: 2 },
   { id: "t10", teamRole: "marketer", title: "Dish of the Weekend announce (Thu)", description: "10–15% Fri–Sun", status: "todo", priority: "medium", weekNumber: 2 },
   { id: "t11", teamRole: "writer", title: "Compliance pass on next 7 posts PDF", description: "Sir Waqas review pack", status: "todo", priority: "high", weekNumber: 2 },
   { id: "t12", teamRole: "seo_dev", title: "Keyword seed → page briefs", description: "P0 clusters only", status: "todo", priority: "medium", weekNumber: 3 },
@@ -94,10 +94,10 @@ export const findings = {
 };
 
 export const nextActions = [
-  { owner: "Media", action: "Publish Flight 1: $20/day · $200 · 10 days · 3 creatives · McVean 5 km + Clarence 8 km" },
-  { owner: "Media", action: "Track live CPC, IG profile visits, follower growth daily" },
-  { owner: "Ops", action: "Confirm in-store 5% claim steps match static creative" },
-  { owner: "Sir / Media", action: "After Day 10 — review live numbers before any scale" },
+  { owner: "Usama", action: "Publish Flight 1: $20/day · $200 · 10 days · 3 creatives · McVean 5 km + Clarence 8 km" },
+  { owner: "Usama", action: "Track live CPC, IG profile visits, follower growth daily" },
+  { owner: "Khadija", action: "Confirm in-store 5% claim creative matches live offer steps" },
+  { owner: "Sir Waqas / Usama", action: "After Day 10 — review live numbers before any scale" },
 ];
 
 export const culturalCalendar = [

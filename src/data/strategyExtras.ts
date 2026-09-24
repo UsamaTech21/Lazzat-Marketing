@@ -92,8 +92,8 @@ export const localSeo = {
     { horizon: "Launch path", target: "100+ reviews", note: "Cumulative plan goal — not a live count" },
   ],
   owners: {
-    dayToDay: "Kamran (POS + customer reviews)",
-    backup: "Fatma (ops / comments)",
+    dayToDay: "Moeed (SEO + GMB day-to-day)",
+    backup: "Usama (promo / social alignment)",
     escalate: "Sir Waqas — policy / sensitive replies",
   },
 };
@@ -164,23 +164,58 @@ export const culturalCampaigns = {
 
 export const teamRoles = {
   title: "Team Roles & Responsibilities",
-  subtitle: "Who owns what — and who approves before it goes public.",
+  subtitle: "Active marketing team is 4 people — clear lanes so ownership is never fuzzy.",
+  note: "Current headcount: 4. Sir Waqas remains final approver for paid spend, public offers, and sensitive reputation replies (not day-to-day execution).",
   roster: [
-    { name: "Sir Waqas Mukhtar", role: "CEO — final approval (paid, claims, sensitive replies)" },
-    { name: "Sir Mudassar", role: "Co-founder / IT" },
-    { name: "Sir Shahid", role: "Menu Engineer — menu naming / steak-wrap decisions" },
-    { name: "Sir Kamran", role: "POS + customer reviews (day-to-day GBP)" },
-    { name: "Ahmed (Ali Ahmed)", role: "Senior digital / team lead — creative + ads check" },
-    { name: "Soha", role: "Social + data; influencer hospitality" },
-    { name: "Fatma", role: "Ops / comments backup" },
-    { name: "Khadija", role: "Graphics lead" },
-    { name: "Zohaib", role: "Videographer" },
-    { name: "Ali Hamza", role: "SEO / local content" },
-    { name: "Usama", role: "Video edit / portal" },
+    {
+      name: "Khadija",
+      role: "Marketing Team Lead · Graphic Designer",
+      owns: [
+        "Team direction & creative QA",
+        "Static posts, carousels, offer creatives",
+        "Brand visual consistency across IG / FB / ads",
+      ],
+    },
+    {
+      name: "Usama",
+      role: "Video Editor · Marketer · Social Media · Influencer Outreach",
+      owns: [
+        "Reels / TikTok / YouTube edits & publish cadence",
+        "Social handling (IG, TikTok, FB)",
+        "Influencer DMs, collabs, hospitality follow-up",
+        "Meta ads Flight 1 ops + daily reporting",
+      ],
+    },
+    {
+      name: "Moeed",
+      role: "Web Developer · SEO Expert (SEO + GMB)",
+      owns: [
+        "Website / CMS access & technical SEO",
+        "On-page + off-page SEO",
+        "Google Business Profile (McVean + Clarence)",
+        "Pixel / events support for paid",
+      ],
+    },
+    {
+      name: "Minahil",
+      role: "Content Writer",
+      owns: [
+        "Blog posts & on-site copy",
+        "Captions / caption banks",
+        "Compliance-safe drafts for Sir Waqas review packs",
+      ],
+    },
+  ],
+  lanes: [
+    { lane: "Design & lead", person: "Khadija" },
+    { lane: "Video · social · influencers · paid ops", person: "Usama" },
+    { lane: "Web · SEO · GMB", person: "Moeed" },
+    { lane: "Writing · blogs · captions", person: "Minahil" },
   ],
   approvalChain: [
-    "Draft (designer / writer / editor)",
-    "Channel check — Ahmed and/or Soha (fit, cadence, brand voice)",
+    "Draft — Minahil (copy) / Khadija (design) / Usama (video)",
+    "Channel + brand check — Khadija (team lead) with Usama (social fit)",
+    "SEO / GMB / site publish — Moeed",
     "Compliance skim — no halal / charcoal / unverified claims",
     "Sir Waqas final — paid ads, public offers, sensitive reputation replies",
   ],

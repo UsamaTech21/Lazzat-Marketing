@@ -29,20 +29,26 @@ export function PortalShell({
   const [active, setActive] = useState("current");
   const [query, setQuery] = useState("");
 
+  // Scroll-spy: highlight the nav item for the section currently under the sticky header.
   useEffect(() => {
-    const sections = nav.map((n) => document.getElementById(n.id)).filter(Boolean) as HTMLElement[];
-    if (!sections.length) return;
-    const obs = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible?.target?.id) setActive(visible.target.id);
-      },
-      { rootMargin: "-18% 0px -58% 0px", threshold: [0.12, 0.3, 0.5] }
-    );
-    sections.forEach((s) => obs.observe(s));
-    return () => obs.disconnect();
+    const ids = nav.map((n) => n.id);
+    const syncActive = () => {
+      const marker = 110; // sticky header + breathing room
+      let current = ids[0] ?? "current";
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        if (el.getBoundingClientRect().top - marker <= 0) current = id;
+      }
+      setActive((prev) => (prev === current ? prev : current));
+    };
+    syncActive();
+    window.addEventListener("scroll", syncActive, { passive: true });
+    window.addEventListener("resize", syncActive);
+    return () => {
+      window.removeEventListener("scroll", syncActive);
+      window.removeEventListener("resize", syncActive);
+    };
   }, [nav]);
 
   useEffect(() => {
@@ -174,13 +180,17 @@ export function PortalShell({
                 <a
                   key={item.id}
                   href={`#${item.id}`}
-                  onClick={closeMobile}
+                  onClick={() => {
+                    setActive(item.id);
+                    closeMobile();
+                  }}
                   className={`mb-0.5 flex items-center gap-2 rounded-lg px-2 py-2.5 text-[13.5px] transition-colors md:py-2 ${
                     active === item.id
                       ? "border border-blue-200 bg-blue-50 font-medium text-blue-800"
                       : "border border-transparent text-slate-600 hover:bg-slate-50"
                   } ${collapsed ? "md:justify-center" : ""}`}
                   title={item.label}
+                  aria-current={active === item.id ? "true" : undefined}
                 >
                   <span
                     className={`flex h-6 w-6 shrink-0 items-center justify-center rounded text-[11px] font-bold ${

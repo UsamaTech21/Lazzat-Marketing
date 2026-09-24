@@ -575,11 +575,32 @@ export function FullStrategyAfterBudget({
       </Section>
 
       <Section id="team" title={teamRoles.title} subtitle={teamRoles.subtitle}>
+        <p className="mb-4 rounded-lg border border-[var(--border)] bg-[var(--surface-2)] px-4 py-3 text-sm text-[var(--muted)]">
+          {teamRoles.note}
+        </p>
+        <div className="mb-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+          {teamRoles.lanes.map((l) => (
+            <div
+              key={l.lane}
+              className="rounded-lg border border-[var(--border)] px-3 py-2 text-center text-sm"
+            >
+              <div className="text-[10px] font-semibold uppercase tracking-wide text-[var(--muted)]">
+                {l.lane}
+              </div>
+              <div className="mt-1 font-semibold text-[var(--gold-light)]">{l.person}</div>
+            </div>
+          ))}
+        </div>
         <div className="mb-4 grid gap-3 md:grid-cols-2">
           {teamRoles.roster.map((r) => (
             <div key={r.name} className="card text-sm">
               <strong className="text-[var(--gold-light)]">{r.name}</strong>
               <p className="mt-1 text-[var(--muted)]">{r.role}</p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-[13px] text-[var(--fg)]">
+                {r.owns.map((o) => (
+                  <li key={o}>{o}</li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>

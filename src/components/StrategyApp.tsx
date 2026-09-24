@@ -439,44 +439,126 @@ export function StrategyApp() {
       )}
 
       <Section id="goals" title={goals.title} subtitle={goals.oneLiner}>
-        <div className="mb-4 grid gap-3 sm:grid-cols-3">
-          <StatTile label="Flight spend" value={goals.flight.spend} sub={goals.flight.daily} />
-          <StatTile label="Days" value={goals.flight.days} sub="First Meta ads" />
-          <StatTile label="Offer" value="5%" sub="Lifetime off" />
+        <div className="mb-5 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5">
+          <p className="text-[12px] font-bold uppercase tracking-wider text-slate-600">Kaise padhein</p>
+          <ol className="mt-2 list-decimal space-y-1 pl-5 text-[13.5px] leading-relaxed text-slate-700">
+            <li>
+              Pillars <strong>A → E</strong>: Social → SEO → GMB → Paid goals → Expansion.
+            </li>
+            <li>
+              Har goal: <strong>Now</strong> → <strong>Realistic</strong> → <strong>Stretch</strong> →{" "}
+              <strong>Measure</strong>.
+            </li>
+            <li>
+              $200 Meta flight → <a href="#paid" className="font-semibold text-blue-700 underline">Paid Marketing Plan</a>.
+            </li>
+          </ol>
+          <p className="mt-2 text-[12px] text-slate-500">{goals.note}</p>
         </div>
-        <div className="grid gap-3 md:grid-cols-2">
-          <div className="card">
-            <h3 className="mb-2 text-xs font-bold uppercase tracking-wider text-[var(--gold)]">Primary</h3>
-            <ul className="list-disc space-y-1 pl-4 text-[14px]">
-              {goals.primaryGoals.map((g) => (
-                <li key={g}>{g}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="card">
-            <h3 className="mb-2 text-xs font-bold uppercase tracking-wider text-[var(--gold)]">After flight</h3>
-            <ul className="list-disc space-y-1 pl-4 text-[14px]">
-              {goals.secondaryGoals.map((g) => (
-                <li key={g}>{g}</li>
-              ))}
-            </ul>
-          </div>
+
+        <div className="mb-6 flex flex-wrap gap-2">
+          {goals.pillars.map((p) => (
+            <a
+              key={p.id}
+              href={`#goals-${p.id}`}
+              className="badge border-slate-200 bg-white text-slate-700 no-underline hover:bg-slate-50"
+            >
+              {p.letter}. {p.title.split(" / ")[0]}
+            </a>
+          ))}
+        </div>
+
+        <div className="space-y-10">
+          {goals.pillars.map((pillar, pIdx) => (
+            <div key={pillar.id} id={`goals-${pillar.id}`} className="scroll-mt-24">
+              <div className="mb-4 flex items-end gap-3 border-b-2 border-slate-900 pb-3">
+                <span className="font-[family-name:var(--font-display)] text-3xl font-bold leading-none text-slate-900 sm:text-4xl">
+                  {pillar.letter}
+                </span>
+                <div className="min-w-0 flex-1 pb-0.5">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+                    {pIdx + 1} / {goals.pillars.length}
+                  </p>
+                  <h3 className="text-[1.15rem] font-semibold leading-tight text-slate-900 sm:text-[1.3rem]">
+                    {pillar.title}
+                  </h3>
+                </div>
+                <span className="hidden text-[12px] text-slate-400 sm:inline">{pillar.items.length} goals</span>
+              </div>
+
+              <ol className="space-y-0 divide-y divide-slate-200 border border-slate-200 bg-white">
+                {pillar.items.map((item, iIdx) => {
+                  const code = `${pillar.letter}${iIdx + 1}`;
+                  return (
+                    <li key={item.goal} className="grid gap-0 sm:grid-cols-[3.25rem_1fr]">
+                      <div className="flex items-start justify-center bg-slate-50 px-2 py-4 sm:border-r sm:border-slate-200">
+                        <span className="text-[13px] font-bold text-slate-500">{code}</span>
+                      </div>
+                      <div className="px-4 py-4 sm:px-5">
+                        <h4 className="text-[15px] font-semibold leading-snug text-slate-900 sm:text-[16px]">
+                          {item.goal}
+                        </h4>
+                        <dl className="mt-3 grid gap-2 text-[13.5px] leading-relaxed sm:grid-cols-[6.5rem_1fr] sm:gap-x-3 sm:gap-y-2">
+                          <dt className="font-semibold text-slate-500">Now</dt>
+                          <dd className="text-slate-700">{item.baseline}</dd>
+                          {item.realistic && (
+                            <>
+                              <dt className="font-semibold text-slate-500">Realistic</dt>
+                              <dd className="text-slate-800">{item.realistic}</dd>
+                            </>
+                          )}
+                          {item.ambitious && (
+                            <>
+                              <dt className="font-semibold text-slate-500">Stretch</dt>
+                              <dd className="text-slate-800">{item.ambitious}</dd>
+                            </>
+                          )}
+                          <dt className="font-semibold text-slate-500">Measure</dt>
+                          <dd className="text-slate-800">{item.target}</dd>
+                        </dl>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ol>
+            </div>
+          ))}
         </div>
       </Section>
 
       {fullStrategy && <FullStrategyBeforePaid bumpRecycle={bumpRecycle} />}
 
       <Section id="paid" title={paidPlan.title} subtitle={paidPlan.subtitle}>
-        <div className="card mb-4 text-[15px] leading-relaxed">{paidPlan.principle}</div>
-
-        <div className="mb-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          <StatTile label="Daily" value={`$${paidPlan.activeFlight.dailyCad}`} sub={paidPlan.activeFlight.platform} />
-          <StatTile label="Total" value={`$${paidPlan.activeFlight.totalCad}`} sub={`${paidPlan.activeFlight.days} days`} />
-          <StatTile label="Creatives" value="3" sub="2 video + 1 static" />
-          <StatTile label="Geo" value="2 pins" sub="McVean + Clarence" />
+        <div
+          id="paid-flight"
+          className="mb-5 scroll-mt-24 rounded-xl border-2 border-blue-200 bg-white p-4 sm:p-5"
+        >
+          <div className="mb-3 flex flex-wrap items-center gap-2">
+            <span className="badge border-blue-600 bg-blue-600 text-white">Active flight</span>
+            <h3 className="text-base font-semibold text-slate-900">Near-term Flight 1 (Meta IG)</h3>
+          </div>
+          <div className="mb-3 grid gap-3 sm:grid-cols-3">
+            <StatTile
+              label="Spend"
+              value={`$${paidPlan.activeFlight.totalCad}`}
+              sub={`$${paidPlan.activeFlight.dailyCad}/day`}
+            />
+            <StatTile
+              label="Duration"
+              value={`${paidPlan.activeFlight.days} days`}
+              sub="First Meta IG ads"
+            />
+            <StatTile label="Offer" value="5%" sub="Lifetime off · flight creatives" />
+          </div>
+          <p className="text-[13px] text-slate-600">{paidPlan.activeFlight.name}</p>
         </div>
 
-        <p className="mb-4 text-[14px] font-medium text-[var(--gold-light)]">{paidPlan.activeFlight.name}</p>
+        <div className="card mb-4 text-[15px] leading-relaxed">{paidPlan.principle}</div>
+
+        <div className="mb-5 grid gap-3 sm:grid-cols-2">
+          <StatTile label="Creatives" value="3" sub="2 video + 1 static" />
+          <StatTile label="Geo" value="2 pins" sub="McVean 5 km · Clarence 8 km" />
+        </div>
 
         <div className="mb-5 grid gap-3 md:grid-cols-2">
           {paidPlan.goals.map((g) => (

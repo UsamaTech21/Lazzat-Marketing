@@ -7,6 +7,13 @@ import { STORAGE_KEYS, loadJson, saveJson } from "@/lib/storage";
 const STATUSES: TaskStatus[] = ["todo", "in_progress", "review", "done", "blocked"];
 const ROLES: TeamRole[] = ["designer", "writer", "marketer", "seo_dev"];
 
+const ROLE_LABEL: Record<TeamRole, string> = {
+  designer: "Khadija · Design",
+  writer: "Minahil · Writer",
+  marketer: "Usama · Social / Ads",
+  seo_dev: "Moeed · SEO / Web",
+};
+
 const STATUS_LABEL: Record<TaskStatus, string> = {
   todo: "To do",
   in_progress: "In progress",
@@ -74,14 +81,14 @@ export function KanbanBoard({
     <div className="space-y-3">
       <div className="flex flex-wrap items-center gap-2">
         <select
-          className="select max-w-[180px]"
+          className="select max-w-[240px]"
           value={role}
           onChange={(e) => setRole(e.target.value as TeamRole | "all")}
         >
           <option value="all">All roles</option>
           {ROLES.map((r) => (
             <option key={r} value={r}>
-              {r}
+              {ROLE_LABEL[r]}
             </option>
           ))}
         </select>
@@ -120,7 +127,7 @@ export function KanbanBoard({
                   onDragStart={() => setDragId(t.id)}
                 >
                   <div className="mb-1.5 flex items-center justify-between gap-2">
-                    <span className="badge">{t.teamRole}</span>
+                    <span className="badge">{ROLE_LABEL[t.teamRole]}</span>
                     <button
                       type="button"
                       className="text-[10px] text-[var(--muted)] hover:text-[var(--danger)]"
