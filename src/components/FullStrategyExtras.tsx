@@ -32,48 +32,152 @@ type Handlers = {
 export function FullStrategyBeforePaid({ bumpRecycle }: Pick<Handlers, "bumpRecycle">) {
   return (
     <>
-<Section id="audience" title={audience.title}>
-        <div className="card mb-4 grid gap-2 md:grid-cols-4">
-          <div>
-            <div className="text-[10px] uppercase text-[var(--muted)]">Population</div>
-            <div className="text-[var(--gold-light)]">{audience.bramptonSnap.pop}</div>
-          </div>
-          <div>
-            <div className="text-[10px] uppercase text-[var(--muted)]">Median income</div>
-            <div className="text-[var(--gold-light)]">{audience.bramptonSnap.medianIncome}</div>
-          </div>
-          <div>
-            <div className="text-[10px] uppercase text-[var(--muted)]">Household</div>
-            <div className="text-[var(--gold-light)]">{audience.bramptonSnap.household}</div>
-          </div>
-          <div className="text-sm text-[var(--muted)] md:col-span-1">{audience.bramptonSnap.insight}</div>
+      <Section id="audience" title={audience.title} subtitle={audience.subtitle}>
+        <div className="card mb-5 border-blue-100 bg-blue-50/40 text-[14px] leading-relaxed text-slate-800">
+          <p className="text-[11px] font-bold uppercase tracking-wider text-blue-800">Positioning</p>
+          <p className="mt-1.5">{audience.positioning}</p>
         </div>
-        <div className="mb-4 flex flex-wrap gap-2">
+
+        <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-[var(--gold)]">
+          1 · Brampton snapshot
+        </h3>
+        <div className="mb-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="card py-3">
+            <div className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Population</div>
+            <div className="mt-1 text-[15px] font-semibold text-[var(--gold-light)]">{audience.bramptonSnap.pop}</div>
+            <p className="mt-1 text-[12px] text-slate-500">{audience.bramptonSnap.growth}</p>
+          </div>
+          <div className="card py-3">
+            <div className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Median age</div>
+            <div className="mt-1 text-[15px] font-semibold text-[var(--gold-light)]">{audience.bramptonSnap.medianAge}</div>
+          </div>
+          <div className="card py-3">
+            <div className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Median HH income</div>
+            <div className="mt-1 text-[15px] font-semibold text-[var(--gold-light)]">
+              {audience.bramptonSnap.medianIncome}
+            </div>
+          </div>
+          <div className="card py-3">
+            <div className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Household size</div>
+            <div className="mt-1 text-[15px] font-semibold text-[var(--gold-light)]">
+              {audience.bramptonSnap.household}
+            </div>
+          </div>
+        </div>
+        <div className="mb-4 grid gap-3 sm:grid-cols-2">
+          <div className="card py-3 text-sm">
+            <strong className="text-slate-800">Foreign-born:</strong> {audience.bramptonSnap.foreignBorn}
+            <span className="mx-2 text-slate-300">·</span>
+            <strong className="text-slate-800">Visible minority:</strong> {audience.bramptonSnap.visibleMinority}
+          </div>
+          <div className="card border-amber-100 bg-amber-50/50 py-3 text-[13.5px] leading-relaxed text-amber-950">
+            {audience.bramptonSnap.insight}
+          </div>
+        </div>
+
+        <div className="mb-6 grid gap-3 lg:grid-cols-3">
+          <div className="card">
+            <h4 className="mb-2 text-[11px] font-bold uppercase tracking-wider text-[var(--gold)]">Ethnicity</h4>
+            <ul className="space-y-2 text-[13px]">
+              {audience.ethnicity.map((e) => (
+                <li key={e.group}>
+                  <strong className="text-slate-900">{e.group}</strong>
+                  <span className="text-slate-500"> · {e.share}</span>
+                  <p className="text-[12px] text-slate-500">{e.note}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="card">
+            <h4 className="mb-2 text-[11px] font-bold uppercase tracking-wider text-[var(--gold)]">Religion</h4>
+            <ul className="space-y-1.5 text-[13px]">
+              {audience.religion.map((r) => (
+                <li key={r.name}>
+                  <strong className="text-slate-900">{r.name}</strong>
+                  <span className="text-slate-500"> · {r.share}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="card">
+            <h4 className="mb-2 text-[11px] font-bold uppercase tracking-wider text-[var(--gold)]">Languages</h4>
+            <ul className="space-y-2 text-[13px]">
+              {audience.languages.map((l) => (
+                <li key={l.name}>
+                  <strong className="text-slate-900">{l.name}</strong>
+                  <p className="text-[12px] text-slate-500">{l.share}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-[var(--gold)]">
+          2 · Targeting rules (locked)
+        </h3>
+        <ul className="mb-6 list-disc space-y-1.5 rounded-xl border border-slate-200 bg-white px-5 py-4 pl-8 text-[13.5px] leading-relaxed text-slate-700">
           {audience.rules.map((r) => (
-            <span key={r} className="badge">
-              {r}
-            </span>
+            <li key={r}>{r}</li>
+          ))}
+        </ul>
+
+        <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-[var(--gold)]">
+          3 · Buyer personas / ICPs
+        </h3>
+        <div className="mb-6 grid gap-3 md:grid-cols-2">
+          {audience.personas.map((p) => (
+            <article key={p.id} className="card">
+              <div className="mb-2 flex flex-wrap items-center gap-2">
+                <span className="badge">{p.priority}</span>
+                <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold text-slate-900">
+                  {p.name}
+                </h3>
+              </div>
+              <p className="text-[12px] text-slate-500">{p.where}</p>
+              <p className="mt-2 text-[13px] text-slate-600">{p.profile}</p>
+              <dl className="mt-3 space-y-2 text-[13.5px] leading-relaxed">
+                <div>
+                  <dt className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Pain</dt>
+                  <dd className="text-slate-800">{p.pain}</dd>
+                </div>
+                <div>
+                  <dt className="text-[10px] font-bold uppercase tracking-wider text-slate-500">We deliver</dt>
+                  <dd className="text-slate-800">{p.deliver}</dd>
+                </div>
+                <div>
+                  <dt className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Content</dt>
+                  <dd className="text-slate-700">{p.content}</dd>
+                </div>
+                <div>
+                  <dt className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Channels</dt>
+                  <dd className="text-slate-700">{p.channels}</dd>
+                </div>
+              </dl>
+            </article>
           ))}
         </div>
-        <div className="grid gap-3 md:grid-cols-2">
-          {audience.personas.map((p) => (
-            <div key={p.name} className="card">
-              <h3 className="font-[family-name:var(--font-display)] text-xl text-[var(--gold-light)]">
-                {p.name}
-              </h3>
-              <p className="text-xs text-[var(--muted)]">{p.where}</p>
-              <p className="mt-2 text-sm">
-                <strong>Pain:</strong> {p.pain}
-              </p>
-              <p className="text-sm">
-                <strong>Deliver:</strong> {p.deliver}
-              </p>
-              <p className="text-sm text-[var(--muted)]">
-                <strong>Content:</strong> {p.content}
-              </p>
+
+        <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-[var(--gold)]">
+          4 · Neighbourhood catchments
+        </h3>
+        <div className="mb-6 grid gap-3 sm:grid-cols-2">
+          {audience.neighbourhoods.map((n) => (
+            <div key={n.name} className="card py-3">
+              <h4 className="font-semibold text-slate-900">{n.name}</h4>
+              <p className="text-[12px] text-blue-800">{n.near}</p>
+              <p className="mt-1.5 text-[13px] leading-relaxed text-slate-600">{n.note}</p>
             </div>
           ))}
         </div>
+
+        <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-[var(--gold)]">
+          5 · Buying psychology
+        </h3>
+        <ul className="list-disc space-y-1.5 rounded-xl border border-slate-200 bg-slate-50 px-5 py-4 pl-8 text-[13.5px] leading-relaxed text-slate-700">
+          {audience.psychology.map((x) => (
+            <li key={x}>{x}</li>
+          ))}
+        </ul>
       </Section>
 
       <Section id="competitors" title={competitors.title} subtitle={competitors.finding}>
