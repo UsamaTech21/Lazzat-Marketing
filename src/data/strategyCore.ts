@@ -20,8 +20,8 @@ export type GoalPillar = {
 export const goals = {
   title: "Goals",
   oneLiner:
-    "Specific · measurable · time-bound — live baselines (IG 96.7K views, McVean 8.9K GMB interactions, DA 11). Paid Flight $200 lives under Paid Marketing Plan.",
-  note: "Review counts and follower totals: re-verify in-platform before external decks. Search-query ranking goals report what people type — brand copy still never says “halal.”",
+    "Specific, measurable, and time-bound goals built on live baselines — IG 96.7K views, McVean 8.9K GMB interactions, and domain authority 11.",
+  note: "Re-verify review counts and follower totals in-platform before external decks. Search-query ranking goals report what people type; brand copy never uses “halal.”",
   pillars: [
     {
       id: "awareness",
@@ -155,11 +155,11 @@ export const goals = {
         {
           goal: "Ship first Meta ads learnings with a fixed test budget.",
           baseline:
-            "Meta social so far ~0% ads on FB/IG organic charts · Flight 1 locked: $20/day · $200 · 10 days · 3 creatives · McVean 5 km + Clarence 8 km.",
+            "Meta social so far ~0% ads on FB/IG organic charts · Flight 1 parameters locked in Paid Marketing Plan · 3 creatives · McVean 5 km + Clarence 8 km.",
           realistic:
             "Flight 1 complete in 10 days with live CPC / profile visits / follows reported (no invented ROAS).",
           ambitious:
-            "Within 30–45 days: optional $500 Brand Film / amplify test after Flight 1 learnings (if Sir approves).",
+            "Within 30–45 days: optional Brand Film / amplify test after Flight 1 learnings (if approved).",
           target: "Ads Manager only — not Boost as primary.",
           owner: "Usama (ads ops) · Khadija (creatives) · Sir Waqas (budget approval)",
         },
@@ -226,7 +226,7 @@ export const goals = {
   primaryGoals: [
     "IG followers: visible MoM growth toward 10K ambitious (baseline ~91)",
     "GMB reviews path to 100+ per location · reverse Aug–Sep dip",
-    "Flight 1 Meta $200 learnings → CPC baselines",
+    "Flight 1 Meta learnings → CPC baselines",
   ],
   secondaryGoals: [
     "DA 11 → 20+ in 6 months (ambitious) with off-page restart",

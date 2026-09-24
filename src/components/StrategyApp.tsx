@@ -440,17 +440,21 @@ export function StrategyApp() {
 
       <Section id="goals" title={goals.title} subtitle={goals.oneLiner}>
         <div className="mb-5 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5">
-          <p className="text-[12px] font-bold uppercase tracking-wider text-slate-600">Kaise padhein</p>
+          <p className="text-[12px] font-bold uppercase tracking-wider text-slate-600">How to read</p>
           <ol className="mt-2 list-decimal space-y-1 pl-5 text-[13.5px] leading-relaxed text-slate-700">
             <li>
-              Pillars <strong>A → E</strong>: Social → SEO → GMB → Paid goals → Expansion.
+              Pillars <strong>A → E</strong>: Social → SEO → GMB → Paid → Expansion.
             </li>
             <li>
-              Har goal: <strong>Now</strong> → <strong>Realistic</strong> → <strong>Stretch</strong> →{" "}
+              Each goal: <strong>Now</strong> → <strong>Realistic</strong> → <strong>Stretch</strong> →{" "}
               <strong>Measure</strong>.
             </li>
             <li>
-              $200 Meta flight → <a href="#paid" className="font-semibold text-blue-700 underline">Paid Marketing Plan</a>.
+              Near-term paid media details live under{" "}
+              <a href="#paid" className="font-semibold text-blue-700 underline">
+                Paid Marketing Plan
+              </a>
+              .
             </li>
           </ol>
           <p className="mt-2 text-[12px] text-slate-500">{goals.note}</p>
