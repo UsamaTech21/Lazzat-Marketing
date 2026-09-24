@@ -8,7 +8,7 @@ import {
 } from "@/components/FullStrategyExtras";
 import { BarChartCard } from "@/components/charts/BarChartCard";
 import { DonutChartCard } from "@/components/charts/DonutChartCard";
-import { brand } from "@/data/brand";
+import { ImageLightbox } from "@/components/ImageLightbox";
 import { currentSituation } from "@/data/currentSituation";
 import { paidPlan } from "@/data/paidPlan";
 import { goals } from "@/data/strategyCore";
@@ -22,6 +22,7 @@ export function StrategyApp() {
   const [checkPct, setCheckPct] = useState(0);
   const [taskPct, setTaskPct] = useState(0);
   const [recycleKey, setRecycleKey] = useState(0);
+  const [preview, setPreview] = useState<{ src: string; alt: string } | null>(null);
 
   useEffect(() => {
     setFullStrategy(loadJson(STORAGE_KEYS.fullStrategy, false));
@@ -55,61 +56,387 @@ export function StrategyApp() {
     >
       <Section id="current" title={currentSituation.title} subtitle={currentSituation.subtitle}>
         <p className="mb-4 text-[13px] text-[var(--muted)]">{currentSituation.sourceNote}</p>
-        <div className="mb-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+
+        <div className="mb-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
           <StatTile
-            label="Followers"
-            value={currentSituation.headline.followers}
-            sub={currentSituation.headline.period}
+            label="Social views"
+            value={currentSituation.headline.totalViews}
+            sub={currentSituation.headline.totalViewsNote}
           />
           <StatTile
-            label="Impressions"
-            value={currentSituation.headline.impressions}
-            sub="Tracked networks"
+            label="Instagram"
+            value={currentSituation.headline.topChannelViews}
+            sub="Top social channel YTD"
+          />
+          <StatTile label="GSC clicks" value={currentSituation.headline.gscClicks} sub={currentSituation.headline.gscClicksNote} />
+          <StatTile
+            label="GMB interactions"
+            value={currentSituation.headline.gmbInteractions}
+            sub={currentSituation.headline.gmbInteractionsNote}
           />
           <StatTile
-            label="Interactions"
-            value={currentSituation.headline.interactions}
-            sub="Engagement total"
+            label="Content uploaded"
+            value={currentSituation.headline.contentTotal}
+            sub={currentSituation.headline.contentTotalNote}
           />
-          <StatTile label="IG" value={91} sub="~84% non-follower views" />
+          <StatTile label="Weekly cadence" value="4+3" sub={currentSituation.headline.cadence} />
         </div>
 
-        <div className="mb-5 grid gap-4 lg:grid-cols-3">
+        <h3 className="mb-2 text-xs font-bold uppercase tracking-wider text-[var(--gold)]">
+          Active platforms
+        </h3>
+        <div className="mb-8 flex flex-wrap gap-2">
+          {currentSituation.activePlatforms.map((p) => (
+            <span key={p} className="badge">
+              {p}
+            </span>
+          ))}
+        </div>
+
+        {/* —— Social —— */}
+        <h3 className="mb-3 border-b border-[var(--border)] pb-2 text-sm font-bold uppercase tracking-wider text-[var(--gold)]">
+          1 · Social performance (YTD)
+        </h3>
+        <div className="mb-5 grid gap-4 lg:grid-cols-2">
           <BarChartCard
-            title="Followers by platform"
+            title="Views by platform (YTD)"
             layout="vertical"
-            height={220}
-            data={currentSituation.followersByPlatform.map((r) => ({
-              name: r.platform,
-              value: r.value,
-            }))}
-          />
-          <BarChartCard
-            title="Impressions by platform"
-            layout="vertical"
-            color="#0ea5e9"
-            height={220}
-            data={currentSituation.impressionsByPlatform.map((r) => ({
+            height={280}
+            data={currentSituation.viewsByPlatform.map((r) => ({
               name: r.platform,
               value: r.value,
             }))}
           />
           <DonutChartCard
-            title="IG views by type (90d)"
-            height={220}
-            data={currentSituation.instagram90.byType.map((t) => ({
+            title="Facebook views by format"
+            height={280}
+            data={currentSituation.facebook.viewsByFormat.map((t) => ({
               name: t.type,
-              value: t.pct,
+              value: t.value,
             }))}
           />
         </div>
+        <div className="table-wrap mb-5">
+          <table className="data">
+            <thead>
+              <tr>
+                <th>Platform</th>
+                <th>Views</th>
+                <th>Reach / impressions</th>
+                <th>Engagement</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              {currentSituation.platforms.map((p) => (
+                <tr key={p.name}>
+                  <td>
+                    {p.name}
+                    {"estimate" in p && p.estimate ? (
+                      <span className="ml-1 text-[11px] text-[var(--muted)]">(est.)</span>
+                    ) : null}
+                  </td>
+                  <td>{p.views}</td>
+                  <td>{p.reach}</td>
+                  <td>{p.engagement}</td>
+                  <td className="text-[13px] text-[var(--muted)]">{p.notes}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="mb-5 grid gap-3 md:grid-cols-2">
+          <DonutChartCard
+            title="TikTok traffic sources"
+            height={240}
+            data={currentSituation.tiktok.traffic.map((t) => ({
+              name: t.source,
+              value: t.pct,
+            }))}
+          />
+          <div className="card">
+            <h4 className="mb-2 text-sm font-bold text-[var(--gold)]">Instagram top Reels</h4>
+            <div className="space-y-2">
+              {currentSituation.instagram.topReels.map((r) => (
+                <div key={r.title} className="flex items-baseline justify-between gap-2 border-b border-[var(--border)] pb-2 text-sm last:border-0">
+                  <span className="min-w-0 truncate text-[var(--gold-light)]">{r.title}</span>
+                  <span className="shrink-0 font-semibold">{r.views}</span>
+                </div>
+              ))}
+            </div>
+            <h4 className="mb-1 mt-4 text-xs font-bold uppercase tracking-wider text-[var(--gold)]">
+              TikTok search queries
+            </h4>
+            <div className="flex flex-wrap gap-2">
+              {currentSituation.tiktok.searchQueries.map((q) => (
+                <span key={q} className="badge">
+                  {q}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
 
-        <ul className="list-disc space-y-1.5 pl-5 text-[14px] text-[var(--muted)]">
-          <li>Reels dominate IG views (~86.5%) — paid should amplify, not reinvent.</li>
-          <li>Follower base flat vs strong reach — this flight targets follows + offer.</li>
-          <li>Brand: {brand.taglines.webHero}</li>
+        {/* —— Cadence + SEO ops (priority — section 2) —— */}
+        <h3 className="mb-3 border-b border-[var(--border)] pb-2 text-sm font-bold uppercase tracking-wider text-[var(--gold)]">
+          2 · Cadence & SEO ops
+        </h3>
+        <div className="mb-8 grid gap-3 md:grid-cols-2">
+          <div className="card border-amber-200 bg-amber-50/50">
+            <h4 className="mb-2 text-sm font-bold text-[var(--gold)]">{currentSituation.cadence.title}</h4>
+            <p className="text-[14px]">{currentSituation.cadence.live}</p>
+            <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
+              <div className="stat-tile !p-3">
+                <div className="stat-label">Total</div>
+                <div className="stat-value text-[1.25rem]">{currentSituation.cadence.uploaded.total}</div>
+              </div>
+              <div className="stat-tile !p-3">
+                <div className="stat-label">Videos</div>
+                <div className="stat-value text-[1.25rem]">{currentSituation.cadence.uploaded.videos}</div>
+              </div>
+              <div className="stat-tile !p-3">
+                <div className="stat-label">Influencer</div>
+                <div className="stat-value text-[1.25rem]">{currentSituation.cadence.uploaded.influencerVideos}</div>
+              </div>
+              <div className="stat-tile !p-3">
+                <div className="stat-label">Static</div>
+                <div className="stat-value text-[1.25rem]">{currentSituation.cadence.uploaded.static}</div>
+              </div>
+            </div>
+            <p className="mt-2 text-[13px] text-[var(--muted)]">{currentSituation.cadence.uploaded.note}</p>
+            <p className="mt-2 text-[14px] font-medium text-amber-900">{currentSituation.cadence.gap}</p>
+            <p className="mt-1 text-[13px] text-[var(--muted)]">{currentSituation.cadence.need}</p>
+          </div>
+          <div className="card">
+            <h4 className="mb-2 text-sm font-bold text-[var(--gold)]">{currentSituation.seo.title}</h4>
+            <p className="mb-2 text-[14px]">
+              <strong>Blogs live:</strong> 23 (on-page total)
+            </p>
+            <p className="text-[14px]">
+              <strong>On-page:</strong> {currentSituation.seo.onPage}
+            </p>
+            <p className="mt-2 text-[14px]">
+              <strong>Off-page:</strong> {currentSituation.seo.offPage}
+            </p>
+          </div>
+        </div>
+
+        {/* —— Website / GSC —— */}
+        <h3 className="mb-3 border-b border-[var(--border)] pb-2 text-sm font-bold uppercase tracking-wider text-[var(--gold)]">
+          3 · {currentSituation.websiteGsc.title}
+        </h3>
+        <p className="mb-3 text-[13px] text-[var(--muted)]">{currentSituation.websiteGsc.period}</p>
+        <div className="card mb-4 border-amber-200 bg-amber-50/60 text-[13px] text-amber-950">
+          {currentSituation.websiteGsc.paidNote}
+        </div>
+        <div className="mb-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <StatTile label="Total clicks" value={currentSituation.websiteGsc.clicks} sub="Includes Google Ads" />
+          <StatTile label="Impressions" value={currentSituation.websiteGsc.impressions} sub="Organic + paid search" />
+          <StatTile label="Avg CTR" value={currentSituation.websiteGsc.ctr} />
+          <StatTile label="Avg position" value={currentSituation.websiteGsc.avgPosition} />
+        </div>
+        <div className="mb-4 grid gap-3 md:grid-cols-2">
+          <div className="table-wrap">
+            <table className="data">
+              <thead>
+                <tr>
+                  <th>Top queries</th>
+                  <th>Clicks</th>
+                  <th>Position</th>
+                  <th>Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                {currentSituation.websiteGsc.topQueries.map((q) => (
+                  <tr key={q.query}>
+                    <td>
+                      {q.query}
+                      {"note" in q && q.note ? (
+                        <div className="text-[11px] text-[var(--muted)]">{q.note}</div>
+                      ) : null}
+                    </td>
+                    <td>{q.clicks}</td>
+                    <td>{q.position}</td>
+                    <td>
+                      <span className="badge">{q.kind}</span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="space-y-3">
+            <div className="card">
+              <h4 className="mb-2 text-sm font-bold text-[var(--gold)]">Top pages</h4>
+              {currentSituation.websiteGsc.topPages.map((p) => (
+                <div key={p.page} className="mb-2 border-b border-[var(--border)] pb-2 text-sm last:mb-0 last:border-0">
+                  <strong>{p.page}</strong> · {p.clicks} clicks · {p.impressions} impr.
+                  {"ctr" in p && p.ctr ? ` · CTR ${p.ctr}` : ""}
+                  <div className="text-[12px] text-[var(--muted)]">{p.note}</div>
+                </div>
+              ))}
+            </div>
+            <div className="card text-sm">
+              <h4 className="mb-2 font-bold text-[var(--gold)]">Devices & geography</h4>
+              {currentSituation.websiteGsc.devices.map((d) => (
+                <p key={d.device}>
+                  <strong>{d.device}:</strong> {d.clicks} clicks · {d.impressions} impressions
+                </p>
+              ))}
+              <p className="mt-2 text-[13px] text-[var(--muted)]">{currentSituation.websiteGsc.geography}</p>
+              <a
+                className="mt-3 inline-flex text-[13px] font-medium text-blue-700 underline"
+                href={currentSituation.gscExportFile}
+                download
+              >
+                Download GSC export (xlsx)
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* —— Domain SEO —— */}
+        <h3 className="mb-3 border-b border-[var(--border)] pb-2 text-sm font-bold uppercase tracking-wider text-[var(--gold)]">
+          4 · {currentSituation.domainSeo.title}
+        </h3>
+        <p className="mb-3 text-[13px] text-[var(--muted)]">{currentSituation.domainSeo.period}</p>
+        <div className="mb-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <StatTile
+            label="Organic keywords"
+            value={currentSituation.domainSeo.organicKeywords}
+            sub={currentSituation.domainSeo.keywordsDelta}
+          />
+          <StatTile
+            label="Organic traffic"
+            value={currentSituation.domainSeo.organicTraffic}
+            sub={currentSituation.domainSeo.trafficDelta}
+          />
+          <StatTile label="Domain authority" value={currentSituation.domainSeo.domainAuthority} sub="Still low" />
+          <StatTile
+            label="Backlinks"
+            value={currentSituation.domainSeo.backlinks}
+            sub={`${currentSituation.domainSeo.nofollow} nofollow`}
+          />
+        </div>
+        <div className="card mb-8 text-[14px]">{currentSituation.domainSeo.curveNote}</div>
+
+        {/* —— GMB —— */}
+        <h3 className="mb-3 border-b border-[var(--border)] pb-2 text-sm font-bold uppercase tracking-wider text-[var(--gold)]">
+          5 · {currentSituation.gmb.title}
+        </h3>
+        <p className="mb-1 text-[13px] text-[var(--muted)]">{currentSituation.gmb.period}</p>
+        <p className="mb-4 text-[12px] text-amber-800">{currentSituation.gmb.reviewsNote}</p>
+        <div className="table-wrap mb-5">
+          <table className="data">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>{currentSituation.gmb.mcvean.name}</th>
+                <th>{currentSituation.gmb.clarence.name}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {(
+                [
+                  ["Total interactions", "interactions"],
+                  ["Menu views", "menuViews"],
+                  ["Calls", "calls"],
+                  ["Direction requests", "directions"],
+                  ["Website clicks", "websiteClicks"],
+                ] as const
+              ).map(([label, key]) => (
+                <tr key={key}>
+                  <td>{label}</td>
+                  <td className="font-semibold">{currentSituation.gmb.mcvean[key].toLocaleString()}</td>
+                  <td className="font-semibold">{currentSituation.gmb.clarence[key].toLocaleString()}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="mb-4 grid gap-4 lg:grid-cols-3">
+          <BarChartCard
+            title="GMB interactions"
+            height={200}
+            data={currentSituation.gmb.chartInteractions}
+          />
+          <BarChartCard
+            title="Direction requests"
+            height={200}
+            color="#0ea5e9"
+            data={currentSituation.gmb.chartDirections}
+          />
+          <BarChartCard
+            title="Calls"
+            height={200}
+            color="#334155"
+            data={currentSituation.gmb.chartCalls}
+          />
+        </div>
+        <ul className="mb-8 list-disc space-y-1.5 pl-5 text-[14px]">
+          {currentSituation.gmb.reading.map((r) => (
+            <li key={r}>{r}</li>
+          ))}
         </ul>
+
+        {/* —— Snapshot —— */}
+        <h3 className="mb-3 border-b border-[var(--border)] pb-2 text-sm font-bold uppercase tracking-wider text-[var(--gold)]">
+          6 · Full snapshot summary
+        </h3>
+        <ul className="mb-4 list-disc space-y-2 pl-5 text-[14px]">
+          {currentSituation.snapshotSummary.map((s) => (
+            <li key={s}>{s}</li>
+          ))}
+        </ul>
+        <div className="card mb-8">
+          <h4 className="mb-2 text-sm font-bold text-[var(--gold)]">Signals worth flagging</h4>
+          <ul className="list-disc space-y-1.5 pl-5 text-[14px]">
+            {currentSituation.signals.map((s) => (
+              <li key={s}>{s}</li>
+            ))}
+          </ul>
+        </div>
+
+        {/* —— Evidence —— */}
+        <h3 className="mb-2 border-b border-[var(--border)] pb-2 text-sm font-bold uppercase tracking-wider text-[var(--gold)]">
+          7 · Source screenshots
+        </h3>
+        <p className="mb-4 text-[13px] text-[var(--muted)]">
+          Click any screenshot for full-screen preview — Esc or Close to dismiss. Mobile and desktop.
+        </p>
+        {currentSituation.evidenceGroups.map((group) => (
+          <div key={group.id} className="mb-6">
+            <h4 className="mb-3 text-xs font-bold uppercase tracking-wider text-slate-500">{group.title}</h4>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {group.items.map((e) => (
+                <button
+                  key={e.src}
+                  type="button"
+                  onClick={() => setPreview({ src: e.src, alt: e.label })}
+                  className="card block w-full overflow-hidden p-0 text-left transition hover:border-blue-300"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={e.src}
+                    alt={e.label}
+                    className="h-auto max-h-[280px] w-full object-cover object-top sm:max-h-[320px]"
+                    loading="lazy"
+                  />
+                  <div className="border-t border-[var(--border)] px-3 py-2.5">
+                    <span className="badge mb-1">{e.platform}</span>
+                    <p className="text-[13px] font-medium text-slate-700">{e.label}</p>
+                    <p className="mt-1 text-[11px] text-blue-700">Click to preview →</p>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        ))}
       </Section>
+
+      {preview && (
+        <ImageLightbox src={preview.src} alt={preview.alt} onClose={() => setPreview(null)} />
+      )}
 
       <Section id="goals" title={goals.title} subtitle={goals.oneLiner}>
         <div className="mb-4 grid gap-3 sm:grid-cols-3">
