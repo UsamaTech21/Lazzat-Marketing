@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { NavItem } from "@/data/nav";
 import { brand } from "@/data/brand";
 
@@ -28,80 +28,63 @@ export function PortalShell({
   const [mobileOpen, setMobileOpen] = useState(false);
   const [active, setActive] = useState("current");
   const [query, setQuery] = useState("");
+  const lockUntilRef = useRef(0);
+  const navIds = useMemo(() => nav.map((n) => n.id), [nav]);
 
-  // Scroll-spy: pick the nav section that currently owns the content under the sticky header.
+  // Reliable scroll-spy: section under sticky header (with fallback if probe sits in a gap).
   useEffect(() => {
-    const ids = nav.map((n) => n.id);
-
-    const resolveActive = () => {
-      // Point just below sticky header — whichever section contains this Y wins.
-      const probeY = 140;
-      for (let i = ids.length - 1; i >= 0; i--) {
-        const el = document.getElementById(ids[i]);
-        if (!el) continue;
-        const { top, bottom } = el.getBoundingClientRect();
-        if (top <= probeY && bottom > probeY + 48) return ids[i];
-      }
-      // Fallback: last section whose top has crossed the probe.
-      let fallback = ids[0] ?? "current";
-      for (const id of ids) {
+    const resolve = () => {
+      if (Date.now() < lockUntilRef.current) return;
+      const header = document.querySelector("header.sticky") as HTMLElement | null;
+      // Align with section scroll-mt (~6rem) so the in-view section owns this line.
+      const probeY = Math.max((header?.getBoundingClientRect().bottom ?? 64) + 48, 160);
+      let next = navIds[0] ?? "current";
+      let contained = false;
+      for (const id of navIds) {
         const el = document.getElementById(id);
         if (!el) continue;
-        if (el.getBoundingClientRect().top <= probeY) fallback = id;
+        const { top, bottom } = el.getBoundingClientRect();
+        if (top <= probeY && bottom > probeY) {
+          next = id;
+          contained = true;
+        }
       }
-      // Near page bottom → last nav item.
+      if (!contained) {
+        // Gap between sections / sub-pixel miss — last section whose top crossed the probe.
+        for (const id of navIds) {
+          const el = document.getElementById(id);
+          if (!el) continue;
+          if (el.getBoundingClientRect().top <= probeY + 2) next = id;
+        }
+      }
+      // Page end: highlight the last partially-visible nav section (short sections can't reach probe).
       const doc = document.documentElement;
-      if (window.scrollY + window.innerHeight >= doc.scrollHeight - 64) {
-        fallback = ids[ids.length - 1] ?? fallback;
+      if (window.scrollY + window.innerHeight >= doc.scrollHeight - 12) {
+        for (let i = navIds.length - 1; i >= 0; i--) {
+          const el = document.getElementById(navIds[i]);
+          if (!el) continue;
+          const { top, bottom } = el.getBoundingClientRect();
+          if (bottom > 80 && top < window.innerHeight) {
+            next = navIds[i];
+            break;
+          }
+        }
       }
-      return fallback;
+      setActive((prev) => (prev === next ? prev : next));
     };
 
-    let ticking = false;
-    const syncActive = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        ticking = false;
-        const next = resolveActive();
-        setActive((prev) => (prev === next ? prev : next));
-      });
-    };
-
-    // Hash deep-links (#paid etc.) should select immediately.
-    const fromHash = () => {
-      const id = window.location.hash.replace(/^#/, "");
-      if (id && ids.includes(id)) {
-        setActive(id);
-        // Re-sync after smooth scroll settles.
-        window.setTimeout(syncActive, 350);
-      } else {
-        syncActive();
-      }
-    };
-
-    fromHash();
-    window.addEventListener("scroll", syncActive, { passive: true });
-    window.addEventListener("resize", syncActive);
-    window.addEventListener("hashchange", fromHash);
-
-    // Catch late layout (images / charts) so spy doesn't stay stuck on first section.
-    const ro =
-      typeof ResizeObserver !== "undefined"
-        ? new ResizeObserver(() => syncActive())
-        : null;
-    ids.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) ro?.observe(el);
-    });
-
+    resolve();
+    const interval = window.setInterval(resolve, 120);
+    document.addEventListener("scroll", resolve, { capture: true, passive: true });
+    window.addEventListener("resize", resolve);
+    window.addEventListener("hashchange", resolve);
     return () => {
-      window.removeEventListener("scroll", syncActive);
-      window.removeEventListener("resize", syncActive);
-      window.removeEventListener("hashchange", fromHash);
-      ro?.disconnect();
+      window.clearInterval(interval);
+      document.removeEventListener("scroll", resolve, true);
+      window.removeEventListener("resize", resolve);
+      window.removeEventListener("hashchange", resolve);
     };
-  }, [nav]);
+  }, [navIds]);
 
   useEffect(() => {
     if (!mobileOpen) return;
@@ -136,7 +119,7 @@ export function PortalShell({
   const closeMobile = () => setMobileOpen(false);
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[var(--background)]">
+    <div className="min-h-screen overflow-x-clip bg-[var(--background)]">
       {mobileOpen && (
         <button
           type="button"
@@ -147,6 +130,7 @@ export function PortalShell({
       )}
 
       <aside
+        data-active-section={active}
         className={`fixed inset-y-0 left-0 z-50 flex w-[min(300px,88vw)] flex-col border-r border-[var(--border)] bg-white transition-transform duration-200 md:transition-[width] ${
           collapsed ? "md:w-[68px]" : "md:w-[280px]"
         } ${mobileOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}`}
@@ -233,16 +217,18 @@ export function PortalShell({
                   key={item.id}
                   href={`#${item.id}`}
                   onClick={(e) => {
+                    e.preventDefault();
+                    lockUntilRef.current = Date.now() + 1200;
                     setActive(item.id);
                     closeMobile();
-                    // Force hash update even when already on same hash, then scroll.
                     const el = document.getElementById(item.id);
                     if (el) {
-                      e.preventDefault();
                       el.scrollIntoView({ behavior: "smooth", block: "start" });
-                      window.history.replaceState(null, "", `#${item.id}`);
                     }
+                    window.history.replaceState(null, "", `#${item.id}`);
                   }}
+                  data-nav-id={item.id}
+                  data-active={active === item.id ? "true" : "false"}
                   className={`mb-0.5 flex items-center gap-2 rounded-lg px-2 py-2.5 text-[13.5px] transition-colors md:py-2 ${
                     active === item.id
                       ? "border border-blue-200 bg-blue-50 font-medium text-blue-800"
