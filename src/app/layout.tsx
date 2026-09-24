@@ -15,9 +15,14 @@ const display = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Lazzat Marketing Assistant",
+  title: "Lazzat Marketing Portal",
   description:
-    "Claude-style RAG assistant for Lazzat Grill & Shakes — brand knowledge, strategy portal, OpenRouter free LLM.",
+    "Lazzat Grill & Shakes marketing strategy portal — brand knowledge, paid plan, and assistant.",
+  icons: {
+    icon: [{ url: "/lazzat-logo.jpg", type: "image/jpeg" }],
+    apple: [{ url: "/lazzat-logo.jpg", type: "image/jpeg" }],
+    shortcut: "/lazzat-logo.jpg",
+  },
 };
 
 export const viewport: Viewport = {

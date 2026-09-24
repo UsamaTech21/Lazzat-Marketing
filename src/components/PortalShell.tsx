@@ -137,9 +137,11 @@ export function PortalShell({
       >
         <div className={`border-b border-[var(--border)] ${collapsed ? "md:p-3" : "px-4 py-4"}`}>
           <div className={`flex items-center gap-3 ${collapsed ? "md:justify-center" : ""}`}>
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#1d4ed8] text-sm font-bold text-white">
-              L
-            </div>
+            <img
+              src="/lazzat-logo.jpg"
+              alt="Lazzat Grill & Shakes"
+              className="h-10 w-10 shrink-0 rounded-lg object-cover ring-1 ring-slate-200"
+            />
             <div className={`min-w-0 flex-1 ${collapsed ? "md:hidden" : ""}`}>
               <div className="text-base font-semibold tracking-tight text-slate-900">Lazzat</div>
               <div className="text-[11px] uppercase tracking-[0.12em] text-slate-500">

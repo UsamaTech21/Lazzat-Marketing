@@ -19,9 +19,11 @@ export function SidebarChats({ sessions, activeId, onSelect, onNew, onDelete }: 
     <>
       <aside className="hidden h-dvh w-[260px] shrink-0 flex-col border-r border-slate-200 bg-[#f5f5f4] md:flex">
         <div className="flex items-center gap-2 px-4 pb-2 pt-5">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-900 text-[11px] font-bold tracking-wide text-white">
-            Lz
-          </div>
+          <img
+            src="/lazzat-logo.jpg"
+            alt="Lazzat Grill & Shakes"
+            className="h-8 w-8 rounded-lg object-cover ring-1 ring-slate-200"
+          />
           <div>
             <p className="text-[15px] font-semibold tracking-tight text-slate-900">Lazzat</p>
             <p className="text-[11px] text-slate-500">Marketing Assistant</p>
