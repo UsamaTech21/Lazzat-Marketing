@@ -390,32 +390,129 @@ export const competitors = {
 
 export const swot = {
   title: "SWOT Analysis",
+  subtitle:
+    "Internal strengths and gaps vs external openings and risks — grounded in live Sep 2026 baselines (social, GMB, SEO) and a 4-person marketing team.",
+  note: "Use Strengths and Opportunities to prioritize content and Flight learnings. Use Weaknesses and Threats as weekly ops checklist items — not slide decoration.",
   strengths: [
-    "Lava stone grilling + dual grill/shakes pillar",
-    "Dietary universality: no pork, no beef, alcohol-free, veg options",
-    "Global menu breadth (Sajji, Biryani, Doner, skewers, paneer)",
-    "Takeaway model = lower overhead into ingredients",
-    "Castlemore + downtown catchment mix",
-    "Himalayan salt counter as photo prop",
+    {
+      point: "Lava-stone / live-flame grill as a visible differentiator",
+      detail: "Open-kitchen craft is already proven in top Reels (lava stone BBQ, open kitchen + shake).",
+    },
+    {
+      point: "Dual pillar: grill + real-fruit shakes",
+      detail: "Rare combo locally; supports both family platters and Gen-Z shareable content.",
+    },
+    {
+      point: "Dietary universality without niche-only branding",
+      detail: "No pork, no beef, alcohol-free, plus vegetarian options — serves Sikh, Hindu, and Muslim tables while staying positioned as a Canadian brand.",
+    },
+    {
+      point: "Global menu breadth in one takeaway model",
+      detail: "Sajji, Biryani, Doner, skewers, paneer — one kitchen covers multiple Brampton ICPs.",
+    },
+    {
+      point: "Two-location Brampton footprint",
+      detail: "McVean (Castlemore / premium catchment) + Clarence (corridor foot traffic) — complementary geos.",
+    },
+    {
+      point: "Organic social already distributing",
+      detail: "IG 96.7K YTD views · TikTok 36.2K with real buyer search queries · 118 pieces uploaded · Reels-led engagement.",
+    },
+    {
+      point: "Lean, clear marketing ownership",
+      detail: "4-person team (lead/design, video/social/ads, SEO/web/GMB, writer) — short approval chain to Sir Waqas.",
+    },
   ],
   weaknesses: [
-    "Review / social foundation still maturing",
-    "Shake SKU depth vs brand promise",
-    "Claim compliance education needed across team",
-    "Delivery commission pressure 25–30%",
-    "Location status messaging risk (Clarence/Mayfield)",
+    {
+      point: "Follower / review conversion lags reach",
+      detail: "Strong views; IG follower base still small (~91 in Metricool window). Review velocity still a foundation risk.",
+    },
+    {
+      point: "Format and funnel gaps in content",
+      detail: "Carousels = 0 · shake SKU depth still thin vs brand promise · YouTube weaker than IG/TikTok.",
+    },
+    {
+      point: "SEO / site engine paused on key levers",
+      detail: "DA 11 · off-page inconsistent · blog publishing paused (site access) · non-branded local intent rankings weak.",
+    },
+    {
+      point: "GMB uneven across locations",
+      detail: "McVean leads every metric; Clarence strong on directions but soft on calls/menu; both dipped Aug→Sep.",
+    },
+    {
+      point: "Paid learning curve just starting",
+      detail: "FB/IG charts still ~0% ads historically — Flight 1 is the first Meta IG test; no CPC baseline yet.",
+    },
+    {
+      point: "Ops / claim discipline still fragile",
+      detail: "Compliance (lava stone not charcoal; never “halal” in copy) must stay enforced as volume scales.",
+    },
+    {
+      point: "Delivery economics and location messaging",
+      detail: "App commissions ~25–30% · Mayfield must never be marketed as open · Clarence live status must stay accurate in ads/GMB.",
+    },
   ],
   opportunities: [
-    "Cultural calendar peaks (Vaisakhi, Eid, Diwali, Carnival)",
-    "Local micro-influencers + WhatsApp groups",
-    "Medium + GMB local SEO white space",
-    "Catering for mehndi / corporate / baby shower",
-    "Franchise narrative after 6-month proof",
+    {
+      point: "TikTok search intent is already buying-language",
+      detail: "Queries like party chicken platters Brampton, best goat meat Brampton, cheese skewer — turn into weekly search-led Reels.",
+    },
+    {
+      point: "Cultural calendar as campaign backbone",
+      detail: "Vaisakhi, Eid, Diwali/Navratri, Carnival — plan ≥2 weeks ahead; each ICP has a natural occasion.",
+    },
+    {
+      point: "Direct local micro-influencer lane",
+      detail: "Marketplace spam fails; complimentary tasting + @lazzat.ca collab + WhatsApp follow-up fits Brampton.",
+    },
+    {
+      point: "Local SEO / GMB white space",
+      detail: "Branded search is strong; non-branded “near me” and platter intent still winnable with citations, blogs, GBP posts.",
+    },
+    {
+      point: "Clarence conversion upside",
+      detail: "High direction intent — lift calls and menu views with location-specific creative, offers, and GBP posts.",
+    },
+    {
+      point: "Catering and group occasions",
+      detail: "Mehndi, corporate, baby shower, weekend family platters — once form + SLA are live.",
+    },
+    {
+      point: "Flight 1 → paid playbook",
+      detail: "First Meta IG learnings create CPC / profile-visit baselines before any scale or Brand Film amplify.",
+    },
   ],
   threats: [
-    "Established BBQ competitors with review moats",
-    "One early bad GMB review with thin history",
-    "Cost-of-living pressure on 'honest pricing' authenticity",
-    "Ops claim overreach → regulatory / trust damage",
+    {
+      point: "Competitors with deeper review moats",
+      detail: "Established BBQ / grill players can outlast thin early rating history if Lazzat review velocity stalls.",
+    },
+    {
+      point: "One viral bad review early",
+      detail: "Thin GMB history amplifies a single food-safety or service complaint — ≤24h reply SLA is critical.",
+    },
+    {
+      point: "Cost-of-living pressure on “honest pricing”",
+      detail: "If guests feel sticker shock vs promise, trust erodes faster than ads can fix.",
+    },
+    {
+      point: "Claim / compliance slip in public copy",
+      detail: "Charcoal, “halal,” Desi framing, or unverified health claims create brand and CEO risk.",
+    },
+    {
+      point: "Wrong-location marketing",
+      detail: "Mayfield or stale Clarence hours/status in ads or GBP destroys trust in both catchments.",
+    },
+    {
+      point: "Delivery platforms and category noise",
+      detail: "Commission + algorithm changes can squeeze margins; Osmow’s / Lazeez-class players compete on speed and awareness.",
+    },
+  ],
+  implications: [
+    "Near-term: protect strengths in Reels (flame craft + platters + shakes) while closing carousel and review gaps.",
+    "SEO/GMB: unblock site access, restart blogs/off-page, and run Clarence-specific GBP conversion plays.",
+    "Paid: finish Flight 1 learnings before any budget scale — report live CPC and profile visits only.",
+    "Risk control: compliance skim on every public asset; location status locked; review replies ≤24h.",
   ],
 };

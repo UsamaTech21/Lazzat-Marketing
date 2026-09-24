@@ -202,25 +202,66 @@ export function FullStrategyBeforePaid({ bumpRecycle }: Pick<Handlers, "bumpRecy
         </div>
       </Section>
 
-      <Section id="swot" title={swot.title}>
-        <div className="grid gap-3 md:grid-cols-2">
+      <Section id="swot" title={swot.title} subtitle={swot.subtitle}>
+        <p className="mb-5 text-[13.5px] leading-relaxed text-slate-600">{swot.note}</p>
+        <div className="mb-5 grid gap-3 md:grid-cols-2">
           {(
             [
-              ["Strengths", swot.strengths],
-              ["Weaknesses", swot.weaknesses],
-              ["Opportunities", swot.opportunities],
-              ["Threats", swot.threats],
+              {
+                label: "Strengths",
+                hint: "Internal · protect & amplify",
+                items: swot.strengths,
+                tone: "border-emerald-200 bg-emerald-50/40",
+                head: "text-emerald-900",
+              },
+              {
+                label: "Weaknesses",
+                hint: "Internal · fix this quarter",
+                items: swot.weaknesses,
+                tone: "border-amber-200 bg-amber-50/40",
+                head: "text-amber-950",
+              },
+              {
+                label: "Opportunities",
+                hint: "External · prioritize plays",
+                items: swot.opportunities,
+                tone: "border-blue-200 bg-blue-50/40",
+                head: "text-blue-900",
+              },
+              {
+                label: "Threats",
+                hint: "External · watch & mitigate",
+                items: swot.threats,
+                tone: "border-rose-200 bg-rose-50/40",
+                head: "text-rose-950",
+              },
             ] as const
-          ).map(([label, list]) => (
-            <div key={label} className="card">
-              <h3 className="mb-2 text-sm font-bold uppercase tracking-wider text-[var(--gold)]">{label}</h3>
-              <ul className="list-disc space-y-1 pl-5 text-sm">
-                {list.map((x) => (
-                  <li key={x}>{x}</li>
+          ).map((col) => (
+            <div key={col.label} className={`rounded-xl border p-4 sm:p-5 ${col.tone}`}>
+              <div className="mb-3 border-b border-black/5 pb-2">
+                <h3 className={`text-sm font-bold uppercase tracking-wider ${col.head}`}>{col.label}</h3>
+                <p className="text-[11px] text-slate-500">{col.hint}</p>
+              </div>
+              <ul className="space-y-3">
+                {col.items.map((item) => (
+                  <li key={item.point} className="text-[13.5px] leading-relaxed">
+                    <strong className="text-slate-900">{item.point}</strong>
+                    <p className="mt-0.5 text-slate-600">{item.detail}</p>
+                  </li>
                 ))}
               </ul>
             </div>
           ))}
+        </div>
+        <div className="card border-slate-300 bg-slate-50">
+          <h3 className="mb-2 text-xs font-bold uppercase tracking-wider text-[var(--gold)]">
+            What this means for Lazzat now
+          </h3>
+          <ul className="list-disc space-y-1.5 pl-5 text-[13.5px] leading-relaxed text-slate-700">
+            {swot.implications.map((x) => (
+              <li key={x}>{x}</li>
+            ))}
+          </ul>
         </div>
       </Section>
 
