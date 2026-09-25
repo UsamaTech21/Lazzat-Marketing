@@ -6,7 +6,12 @@ import { brand } from "@/data/brand";
 import { audience, competitors, swot } from "@/data/strategyCore";
 import { positioning, funnel } from "@/data/growthCore";
 import { organic, influencer, timeline, kpis, growth } from "@/data/channels";
-import { culturalCalendar } from "@/data/execution";
+import {
+  culturalCampaignMeta,
+  culturalEvents,
+  culturalMonthKey,
+  formatCulturalDate,
+} from "@/data/culturalCalendar";
 import {
   brandVoice,
   localSeo,
@@ -518,25 +523,28 @@ export function FullStrategyBeforePaid({ bumpRecycle }: Pick<Handlers, "bumpRecy
         <div className="card mt-4">
           <h3 className="mb-2 text-sm font-bold text-[var(--gold)]">Cultural calendar hooks</h3>
           <p className="mb-2 text-[12px] text-[var(--muted)]">
-            Full event-anchor campaigns → Cultural / Seasonal Calendar section.
+            Full dated calendar with Lazzat angles → Cultural / Seasonal Calendar section.
           </p>
           <div className="table-wrap">
             <table className="data">
               <thead>
                 <tr>
-                  <th>Month</th>
+                  <th>Date</th>
                   <th>Occasion</th>
                   <th>Hero dish</th>
                 </tr>
               </thead>
               <tbody>
-                {culturalCalendar.map((c) => (
-                  <tr key={c.occasion}>
-                    <td>{c.month}</td>
-                    <td>{c.occasion}</td>
-                    <td>{c.dish}</td>
-                  </tr>
-                ))}
+                {culturalEvents
+                  .filter((e) => e.type === "cultural" || e.type === "statutory")
+                  .slice(0, 10)
+                  .map((c) => (
+                    <tr key={c.id}>
+                      <td>{formatCulturalDate(c.date)}</td>
+                      <td>{c.title}</td>
+                      <td>{c.heroDish}</td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
           </div>
@@ -630,30 +638,71 @@ export function FullStrategyAfterBudget(_props: Pick<Handlers, "recycleKey" | "b
       </Section>
 
       <Section id="cultural" title={culturalCampaigns.title} subtitle={culturalCampaigns.subtitle}>
-        <div className="card mb-4 text-sm">{culturalCampaigns.rule}</div>
-        <div className="table-wrap">
-          <table className="data">
-            <thead>
-              <tr>
-                <th>Window</th>
-                <th>Occasion</th>
-                <th>Event anchor</th>
-                <th>Campaign angle</th>
-                <th>Hero dish</th>
-              </tr>
-            </thead>
-            <tbody>
-              {culturalCalendar.map((c) => (
-                <tr key={c.occasion}>
-                  <td>{c.month}</td>
-                  <td>{c.occasion}</td>
-                  <td>{c.anchor}</td>
-                  <td>{c.campaign}</td>
-                  <td>{c.dish}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="card mb-4 text-[14px] leading-relaxed">{culturalCampaigns.rule}</div>
+        <p className="mb-5 text-[12px] text-slate-500">{culturalCampaignMeta.sourcesNote}</p>
+
+        <div className="space-y-8">
+          {Object.entries(
+            culturalEvents.reduce<Record<string, typeof culturalEvents>>((acc, ev) => {
+              const key = culturalMonthKey(ev.date);
+              (acc[key] ??= []).push(ev);
+              return acc;
+            }, {})
+          )
+            .sort(([a], [b]) => a.localeCompare(b))
+            .map(([monthKey, events]) => {
+            const label = new Date(`${monthKey}-01T12:00:00`).toLocaleDateString("en-CA", {
+              month: "long",
+              year: "numeric",
+            });
+            const sorted = [...events].sort((a, b) => a.date.localeCompare(b.date));
+            return (
+              <div key={monthKey} id={`cultural-${monthKey}`} className="scroll-mt-24">
+                <div className="mb-3 flex items-end justify-between border-b-2 border-slate-900 pb-2">
+                  <h3 className="text-[1.1rem] font-semibold text-slate-900">{label}</h3>
+                  <span className="text-[12px] text-slate-400">{sorted.length} occasions</span>
+                </div>
+                <div className="overflow-hidden rounded-xl border border-slate-200 bg-white">
+                  {sorted.map((ev) => (
+                    <article
+                      key={ev.id}
+                      className="grid gap-3 border-b border-slate-100 p-4 last:border-b-0 sm:grid-cols-[7.5rem_1fr]"
+                    >
+                      <div className="rounded-lg bg-slate-50 px-3 py-2 text-center sm:text-left">
+                        <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
+                          {formatCulturalDate(ev.date).split(",")[0]}
+                        </div>
+                        <div className="text-[15px] font-semibold text-slate-900">
+                          {ev.date.slice(8, 10)} {formatCulturalDate(ev.date).split(" ")[1]}
+                        </div>
+                        {ev.endDate && (
+                          <div className="mt-1 text-[11px] text-slate-500">→ {formatCulturalDate(ev.endDate)}</div>
+                        )}
+                        <span className="badge mt-2">{ev.type}</span>
+                      </div>
+                      <div className="min-w-0">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <h4 className="text-[15px] font-semibold text-slate-900">{ev.title}</h4>
+                          <span className="text-[11px] text-slate-400">{ev.region}</span>
+                        </div>
+                        <p className="mt-1 text-[12px] text-slate-500">{ev.accuracy}</p>
+                        <p className="mt-2 text-[13px]">
+                          <strong className="text-slate-700">Hero dish:</strong>{" "}
+                          <span className="text-slate-800">{ev.heroDish}</span>
+                        </p>
+                        <p className="mt-2 text-[13.5px] leading-relaxed text-slate-800">
+                          <strong className="text-blue-800">Lazzat angle:</strong> {ev.lazzatAngle}
+                        </p>
+                        <p className="mt-1.5 text-[12px] text-slate-500">
+                          <strong>Formats:</strong> {ev.formats}
+                        </p>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </Section>
     </>

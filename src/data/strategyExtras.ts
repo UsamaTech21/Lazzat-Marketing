@@ -158,8 +158,9 @@ export const channelStrategy = {
 
 export const culturalCampaigns = {
   title: "Cultural / Seasonal Calendar",
-  subtitle: "Every major push needs an event anchor — plan ≥2 weeks ahead.",
-  rule: "Calendar occasions are the backbone of campaigns, not optional decoration.",
+  subtitle:
+    "Oct 1, 2026 → Dec 31, 2027 — Canada / Ontario / Brampton occasions with exact dates and a Lazzat post or video angle for each.",
+  rule: "Plan each major occasion ≥2 weeks ahead. Soft cultural respect only — never religious phrases, never “halal” / charcoal / Desi brand framing. Canadian brand for every table.",
 };
 
 export const teamRoles = {
