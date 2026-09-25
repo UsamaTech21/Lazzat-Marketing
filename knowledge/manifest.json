@@ -1,6 +1,6 @@
 {
-  "builtAt": "2026-09-07T11:43:22.270Z",
-  "chunkCount": 2794,
+  "builtAt": "2026-09-25T07:52:44.981Z",
+  "chunkCount": 3181,
   "sources": [
     "Lazzat Marketing/SKILL.md",
     "Lazzat Marketing/references/00-INDEX.md",
@@ -29,11 +29,15 @@
     "Lazzat_Brain.md",
     "portal/data/brand.ts",
     "portal/data/channels.ts",
+    "portal/data/culturalCalendar.ts",
     "portal/data/currentSituation.ts",
     "portal/data/execution.ts",
     "portal/data/growthCore.ts",
+    "portal/data/igCampaign.ts",
     "portal/data/nav.ts",
     "portal/data/paidPlan.ts",
-    "portal/data/strategyCore.ts"
+    "portal/data/strategyCore.ts",
+    "portal/data/strategyExtras.ts",
+    "knowledge/learned/2026-09-25-portal-strategy-sync.md"
   ]
 }
