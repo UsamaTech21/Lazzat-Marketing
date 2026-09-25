@@ -180,25 +180,6 @@ export function PortalShell({
           </div>
         </div>
 
-        {fullStrategy && (
-          <div className={`space-y-2 border-b border-[var(--border)] px-4 py-3 ${collapsed ? "md:hidden" : ""}`}>
-            <div className="flex justify-between text-[11px] uppercase tracking-wider text-slate-500">
-              <span>Checklist</span>
-              <span>{checklistProgress}%</span>
-            </div>
-            <div className="h-1.5 overflow-hidden rounded-full bg-slate-100">
-              <div
-                className="h-full rounded-full bg-[#1d4ed8] transition-all"
-                style={{ width: `${checklistProgress}%` }}
-              />
-            </div>
-            <div className="flex justify-between text-[12px] text-slate-500">
-              <span>Tasks done</span>
-              <span>{taskProgress}%</span>
-            </div>
-          </div>
-        )}
-
         <nav className="flex-1 overflow-y-auto overscroll-contain px-2 py-3">
           {groups.length === 0 && (
             <p className={`px-2 text-[13px] text-slate-400 ${collapsed ? "md:hidden" : ""}`}>

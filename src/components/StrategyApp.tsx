@@ -19,8 +19,6 @@ import { STORAGE_KEYS, clearKeys, loadJson, saveJson } from "@/lib/storage";
 
 export function StrategyApp() {
   const [fullStrategy, setFullStrategy] = useState(false);
-  const [checkPct, setCheckPct] = useState(0);
-  const [taskPct, setTaskPct] = useState(0);
   const [recycleKey, setRecycleKey] = useState(0);
   const [preview, setPreview] = useState<{ src: string; alt: string } | null>(null);
 
@@ -37,8 +35,6 @@ export function StrategyApp() {
   };
 
   const bumpRecycle = useCallback(() => setRecycleKey((k) => k + 1), []);
-  const onCheckProgress = useCallback((pct: number) => setCheckPct(pct), []);
-  const onTaskProgress = useCallback((pct: number) => setTaskPct(pct), []);
 
   const resetAll = () => {
     clearKeys(Object.values(STORAGE_KEYS).filter((k) => k !== STORAGE_KEYS.fullStrategy));
@@ -50,8 +46,6 @@ export function StrategyApp() {
       nav={fullStrategy ? FULL_NAV : SHORT_NAV}
       fullStrategy={fullStrategy}
       onToggleFullStrategy={toggleFull}
-      checklistProgress={checkPct}
-      taskProgress={taskPct}
       onResetAll={fullStrategy ? resetAll : undefined}
     >
       <Section id="current" title={currentSituation.title} subtitle={currentSituation.subtitle}>
@@ -664,12 +658,7 @@ export function StrategyApp() {
       </Section>
 
       {fullStrategy && (
-        <FullStrategyAfterBudget
-          onCheckProgress={onCheckProgress}
-          onTaskProgress={onTaskProgress}
-          recycleKey={recycleKey}
-          bumpRecycle={bumpRecycle}
-        />
+        <FullStrategyAfterBudget recycleKey={recycleKey} bumpRecycle={bumpRecycle} />
       )}
 
       <Section id="next" title="Next Actions">

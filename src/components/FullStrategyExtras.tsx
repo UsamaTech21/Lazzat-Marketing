@@ -1,30 +1,21 @@
 "use client";
 
 import { Section } from "@/components/PortalShell";
-import { ChecklistPanel } from "@/components/ChecklistPanel";
-import { KanbanBoard } from "@/components/KanbanBoard";
 import { KeywordTable } from "@/components/KeywordTable";
-import { ContentCalendar } from "@/components/ContentCalendar";
-import { CostingCalculator } from "@/components/CostingCalculator";
-import { RecycleBin } from "@/components/RecycleBin";
 import { brand } from "@/data/brand";
 import { audience, competitors, swot } from "@/data/strategyCore";
 import { positioning, pricing, funnel } from "@/data/growthCore";
 import { organic, influencer, timeline, kpis, growth } from "@/data/channels";
-import { findings, culturalCalendar } from "@/data/execution";
+import { culturalCalendar } from "@/data/execution";
 import {
   brandVoice,
   localSeo,
   reputation,
   channelStrategy,
   culturalCampaigns,
-  teamRoles,
-  compliance,
 } from "@/data/strategyExtras";
 
 type Handlers = {
-  onCheckProgress: (pct: number) => void;
-  onTaskProgress: (pct: number) => void;
   recycleKey: number;
   bumpRecycle: () => void;
 };
@@ -404,14 +395,6 @@ export function FullStrategyBeforePaid({ bumpRecycle }: Pick<Handlers, "bumpRecy
         </div>
       </Section>
 
-      <Section
-        id="costing"
-        title="Costing Calculator"
-        subtitle="Restaurant model — local seed + localStorage. No backend."
-      >
-        <CostingCalculator />
-      </Section>
-
       <Section id="funnel" title={funnel.title}>
         <div className="grid gap-3 md:grid-cols-3">
           {funnel.stages.map((s) => (
@@ -612,15 +595,10 @@ export function FullStrategyBeforePaid({ bumpRecycle }: Pick<Handlers, "bumpRecy
   );
 }
 
-export function FullStrategyAfterBudget({
-  onCheckProgress,
-  onTaskProgress,
-  recycleKey,
-  bumpRecycle,
-}: Handlers) {
+export function FullStrategyAfterBudget(_props: Pick<Handlers, "recycleKey" | "bumpRecycle">) {
   return (
     <>
-<Section id="timeline" title={timeline.title} subtitle={timeline.caveat}>
+      <Section id="timeline" title={timeline.title} subtitle={timeline.caveat}>
         <div className="grid gap-3 md:grid-cols-2">
           {timeline.months.map((m) => (
             <div key={m.m} className="card">
@@ -717,125 +695,6 @@ export function FullStrategyAfterBudget({
             </tbody>
           </table>
         </div>
-      </Section>
-
-      <Section id="team" title={teamRoles.title} subtitle={teamRoles.subtitle}>
-        <p className="mb-4 rounded-lg border border-[var(--border)] bg-[var(--surface-2)] px-4 py-3 text-sm text-[var(--muted)]">
-          {teamRoles.note}
-        </p>
-        <div className="mb-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-          {teamRoles.lanes.map((l) => (
-            <div
-              key={l.lane}
-              className="rounded-lg border border-[var(--border)] px-3 py-2 text-center text-sm"
-            >
-              <div className="text-[10px] font-semibold uppercase tracking-wide text-[var(--muted)]">
-                {l.lane}
-              </div>
-              <div className="mt-1 font-semibold text-[var(--gold-light)]">{l.person}</div>
-            </div>
-          ))}
-        </div>
-        <div className="mb-4 grid gap-3 md:grid-cols-2">
-          {teamRoles.roster.map((r) => (
-            <div key={r.name} className="card text-sm">
-              <strong className="text-[var(--gold-light)]">{r.name}</strong>
-              <p className="mt-1 text-[var(--muted)]">{r.role}</p>
-              <ul className="mt-3 list-disc space-y-1 pl-5 text-[13px] text-[var(--fg)]">
-                {r.owns.map((o) => (
-                  <li key={o}>{o}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-        <div className="card">
-          <h3 className="mb-2 text-sm font-bold text-[var(--gold)]">Approval chain</h3>
-          <ol className="list-decimal space-y-1 pl-5 text-sm">
-            {teamRoles.approvalChain.map((s) => (
-              <li key={s}>{s}</li>
-            ))}
-          </ol>
-        </div>
-      </Section>
-
-      <Section id="tasks" title="Team Tasks (Kanban)" subtitle="Drag across columns · soft-delete → Recycle Bin">
-        <KanbanBoard onProgress={onTaskProgress} onSoftDelete={bumpRecycle} />
-      </Section>
-
-      <Section id="calendar" title="Content Calendar" subtitle="Mon/Wed/Fri/Sun rhythm by week">
-        <ContentCalendar onSoftDelete={bumpRecycle} />
-      </Section>
-
-      <Section id="recycle" title="Recycle Bin" subtitle="Restore soft-deleted tasks, keywords, calendar slots">
-        <RecycleBin refreshKey={recycleKey} />
-      </Section>
-
-      <Section id="compliance" title={compliance.title} subtitle={compliance.subtitle}>
-        <div className="mb-4 grid gap-3 md:grid-cols-2">
-          <div className="card">
-            <h3 className="mb-2 text-sm font-bold text-[var(--gold)]">Do&apos;s</h3>
-            <ul className="list-disc space-y-1 pl-5 text-sm">
-              {compliance.dos.map((x) => (
-                <li key={x}>{x}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="card">
-            <h3 className="mb-2 text-sm font-bold text-[var(--gold)]">Don&apos;ts</h3>
-            <ul className="list-disc space-y-1 pl-5 text-sm">
-              {compliance.donts.map((x) => (
-                <li key={x}>{x}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        <div className="card mb-4 text-sm">
-          <strong className="text-[var(--gold-light)]">Competitor policy:</strong>{" "}
-          {compliance.competitorPolicy}
-        </div>
-        <div className="grid gap-3 md:grid-cols-2">
-          <div className="card">
-            <h3 className="mb-2 text-sm font-bold text-[var(--gold)]">Approved claims</h3>
-            <ul className="list-disc space-y-1 pl-5 text-sm">
-              {compliance.approvedClaims.map((x) => (
-                <li key={x}>{x}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="card">
-            <h3 className="mb-2 text-sm font-bold text-[var(--gold)]">Unverified until ops</h3>
-            <ul className="list-disc space-y-1 pl-5 text-sm">
-              {compliance.unverifiedUntilOps.map((x) => (
-                <li key={x}>{x}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </Section>
-
-      <Section id="findings" title={findings.title}>
-        <div className="space-y-2">
-          {findings.flags.map((f) => (
-            <div
-              key={f.text}
-              className={`card border-l-4 text-sm ${
-                f.level === "red"
-                  ? "border-l-[var(--danger)]"
-                  : f.level === "amber"
-                    ? "border-l-[var(--warn)]"
-                    : "border-l-[var(--success)]"
-              }`}
-            >
-              <span className="badge mb-1">{f.level}</span>
-              <p>{f.text}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section id="checklist" title="Progress Checklist" subtitle="Persists in localStorage">
-        <ChecklistPanel onProgress={onCheckProgress} />
       </Section>
     </>
   );
