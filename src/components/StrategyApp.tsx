@@ -13,7 +13,6 @@ import { currentSituation } from "@/data/currentSituation";
 import { paidPlan } from "@/data/paidPlan";
 import { goals } from "@/data/strategyCore";
 import { budget } from "@/data/channels";
-import { nextActions } from "@/data/execution";
 import { FULL_NAV, SHORT_NAV } from "@/data/nav";
 import { STORAGE_KEYS, clearKeys, loadJson, saveJson } from "@/lib/storage";
 
@@ -660,16 +659,6 @@ export function StrategyApp() {
       {fullStrategy && (
         <FullStrategyAfterBudget recycleKey={recycleKey} bumpRecycle={bumpRecycle} />
       )}
-
-      <Section id="next" title="Next Actions">
-        <ol className="list-decimal space-y-2 pl-5 text-[15px]">
-          {nextActions.map((a) => (
-            <li key={a.action}>
-              <strong className="text-[var(--gold-light)]">{a.owner}:</strong> {a.action}
-            </li>
-          ))}
-        </ol>
-      </Section>
     </PortalShell>
   );
 }

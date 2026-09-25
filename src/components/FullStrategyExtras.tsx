@@ -4,7 +4,7 @@ import { Section } from "@/components/PortalShell";
 import { KeywordTable } from "@/components/KeywordTable";
 import { brand } from "@/data/brand";
 import { audience, competitors, swot } from "@/data/strategyCore";
-import { positioning, pricing, funnel } from "@/data/growthCore";
+import { positioning, funnel } from "@/data/growthCore";
 import { organic, influencer, timeline, kpis, growth } from "@/data/channels";
 import { culturalCalendar } from "@/data/execution";
 import {
@@ -350,46 +350,6 @@ export function FullStrategyBeforePaid({ bumpRecycle }: Pick<Handlers, "bumpRecy
             <div key={p.name} className="card">
               <h4 className="font-semibold text-[var(--gold-light)]">{p.name}</h4>
               <p className="mt-1 text-[13px] text-[var(--muted)]">{p.focus}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section id="pricing" title={pricing.title} subtitle={pricing.note}>
-        <ul className="mb-4 list-disc pl-5 text-sm">
-          {pricing.philosophy.map((p) => (
-            <li key={p}>{p}</li>
-          ))}
-        </ul>
-        <div className="table-wrap mb-4">
-          <table className="data">
-            <thead>
-              <tr>
-                <th>Category</th>
-                <th>Range</th>
-                <th>Heroes</th>
-              </tr>
-            </thead>
-            <tbody>
-              {pricing.categories.map((c) => (
-                <tr key={c.cat}>
-                  <td>{c.cat}</td>
-                  <td>{c.range}</td>
-                  <td>{c.heroes}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <div className="card text-sm">{pricing.openingSpecial}</div>
-        <div className="card mt-3">
-          <h3 className="mb-2 text-sm font-bold text-[var(--gold)]">Locations</h3>
-          {brand.locations.map((l) => (
-            <div key={l.name} className="mb-2 border-b border-[var(--border)] pb-2 text-sm last:border-0">
-              <strong>{l.name}</strong> · <span className="badge">{l.status}</span>
-              <div className="text-[var(--muted)]">{l.address}</div>
-              <div>{l.hours}</div>
-              <div className="text-[var(--gold-light)]">{l.angle}</div>
             </div>
           ))}
         </div>
