@@ -437,20 +437,8 @@ export const swot = {
       detail: "DA 11 · off-page inconsistent · blog publishing paused (site access) · non-branded local intent rankings weak.",
     },
     {
-      point: "GMB uneven across locations",
-      detail: "McVean leads every metric; Clarence strong on directions but soft on calls/menu; both dipped Aug→Sep.",
-    },
-    {
       point: "Paid learning curve just starting",
       detail: "FB/IG charts still ~0% ads historically — Flight 1 is the first Meta IG test; no CPC baseline yet.",
-    },
-    {
-      point: "Ops / claim discipline still fragile",
-      detail: "Compliance (lava stone not charcoal; never “halal” in copy) must stay enforced as volume scales.",
-    },
-    {
-      point: "Delivery economics and location messaging",
-      detail: "App commissions ~25–30% · Mayfield must never be marketed as open · Clarence live status must stay accurate in ads/GMB.",
     },
   ],
   opportunities: [
@@ -485,34 +473,34 @@ export const swot = {
   ],
   threats: [
     {
-      point: "Competitors with deeper review moats",
-      detail: "Established BBQ / grill players can outlast thin early rating history if Lazzat review velocity stalls.",
+      point: "Other restaurants have more Google reviews",
+      detail: "If we do not keep getting new reviews, people may choose older BBQ places instead.",
     },
     {
-      point: "One viral bad review early",
-      detail: "Thin GMB history amplifies a single food-safety or service complaint — ≤24h reply SLA is critical.",
+      point: "One bad Google review can hurt a lot",
+      detail: "We are still new online. One angry review can scare many new customers. Reply fast — within 24 hours.",
     },
     {
-      point: "Cost-of-living pressure on “honest pricing”",
-      detail: "If guests feel sticker shock vs promise, trust erodes faster than ads can fix.",
+      point: "Prices can feel high to some guests",
+      detail: "If food feels expensive vs what we promise, trust drops. Ads alone will not fix that.",
     },
     {
-      point: "Claim / compliance slip in public copy",
-      detail: "Charcoal, “halal,” Desi framing, or unverified health claims create brand and CEO risk.",
+      point: "Wrong words in ads or posts",
+      detail: "Saying charcoal, “halal,” or Desi brand language breaks our rules and can create problems for the brand.",
     },
     {
-      point: "Wrong-location marketing",
-      detail: "Mayfield or stale Clarence hours/status in ads or GBP destroys trust in both catchments.",
+      point: "Wrong location shown as open",
+      detail: "If Mayfield is advertised, or Clarence hours are wrong, customers lose trust in both stores.",
     },
     {
-      point: "Delivery platforms and category noise",
-      detail: "Commission + algorithm changes can squeeze margins; Osmow’s / Lazeez-class players compete on speed and awareness.",
+      point: "Big chains and delivery apps compete hard",
+      detail: "Places like Osmow’s / Lazeez spend more on awareness. Delivery apps also take a cut of every order.",
     },
   ],
   implications: [
-    "Near-term: protect strengths in Reels (flame craft + platters + shakes) while closing carousel and review gaps.",
-    "SEO/GMB: unblock site access, restart blogs/off-page, and run Clarence-specific GBP conversion plays.",
-    "Paid: finish Flight 1 learnings before any budget scale — report live CPC and profile visits only.",
-    "Risk control: compliance skim on every public asset; location status locked; review replies ≤24h.",
+    "Near-term: keep strong Reels (flame, platters, shakes) and close gaps on carousels and reviews.",
+    "SEO: unblock the website, restart blogs and off-page work.",
+    "Paid: finish Flight 1 first — share real CPC and profile visits before any bigger budget.",
+    "Always check copy before publish, and answer Google reviews within 24 hours.",
   ],
 };
