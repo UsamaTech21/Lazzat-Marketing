@@ -15447,493 +15447,487 @@
     "id": "portal_data_growthCore_ts_6",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 6)",
-    "text": "\"GMB velocity\" },\n    { stage: \"Loyalty\", channels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};\n\n\n  phrase: string;\n  lane: \"gmb\" | \"seo\" | \"content\" | \"llmo\";\n  priority: \"P0\" | \"P1\" | \"P2\";\n  notes: string;\n  deletedAt?: string | null;\n};\n\nexport const keywordsSeed: Keyword[] = [\n  { id: \"k1\", phrase: \"flame grilled bowls Brampton\", lane: \"seo\", priority: \"P0\", notes: \"Align to site hero\" },\n  { id: \"k2\", phrase: \"lava stone grill Brampton\", lane: \"seo\", priority: \"P0\", notes: \"Never charcoal\" },\n  { id: \"k3\", phrase: \"takeaway near McVean Drive Brampton\", lane: \"gmb\", priority: \"P0\", notes: \"Loc 1\" },\n  { id: \"k4\", phrase: \"chicken sajji Brampton\", lane: \"seo\", priority: \"P1\", notes: \"Hero dish\" },\n  { id: \"k5\", phrase: \"best biryani takeaway Brampton\", lane: \"seo\", priority: \"P1\", notes: \"Blog cluster\" },\n  { id: \"k6\", phrase: \"paneer tikka Brampton\", lane: \"seo\", priority: \"P1\", notes: \"Veg differentiator\" },\n  { id: \"k7\", phrase:"
+    "text": "\"GMB velocity\" },\n    { stage: \"Loyalty\", channels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_7",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 7)",
-    "text": "\"k6\", phrase: \"paneer tikka Brampton\", lane: \"seo\", priority: \"P1\", notes: \"Veg differentiator\" },\n  { id: \"k7\", phrase: \"real fruit shakes Brampton\", lane: \"content\", priority: \"P1\", notes: \"Dual pillar\" },\n  { id: \"k8\", phrase: \"family platter Brampton grill\", lane: \"content\", priority: \"P1\", notes: \"Revenue driver\" },\n  { id: \"k9\", phrase: \"clean meat restaurant Brampton\", lane: \"llmo\", priority: \"P1\", notes: \"Not halal keyword\" },\n  { id: \"k10\", phrase: \"catering Brampton grilled platters\", lane: \"seo\", priority: \"P2\", notes: \"Catering form when live\" },\n  { id: \"k11\", phrase: \"Clarence Street takeaway Brampton\", lane: \"gmb\", priority: \"P2\", notes: \"Only if location live\" },\n  { id: \"k12\", phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "{ stage: \"Loyalty\", channels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_8",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 8)",
-    "text": "n live\" },\n  { id: \"k12\", phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "stage: \"Loyalty\", channels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_9",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 9)",
-    "text": "live\" },\n  { id: \"k12\", phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "stage: \"Loyalty\", channels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_10",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 10)",
-    "text": "live\" },\n  { id: \"k12\", phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "tage: \"Loyalty\", channels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_11",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 11)",
-    "text": "ive\" },\n  { id: \"k12\", phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "age: \"Loyalty\", channels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_12",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 12)",
-    "text": "ve\" },\n  { id: \"k12\", phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "ge: \"Loyalty\", channels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_13",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 13)",
-    "text": "e\" },\n  { id: \"k12\", phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "e: \"Loyalty\", channels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_14",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 14)",
-    "text": "\" },\n  { id: \"k12\", phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": ": \"Loyalty\", channels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_15",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 15)",
-    "text": "},\n  { id: \"k12\", phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "\"Loyalty\", channels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_16",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 16)",
-    "text": "},\n  { id: \"k12\", phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "\"Loyalty\", channels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_17",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 17)",
-    "text": ",\n  { id: \"k12\", phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "Loyalty\", channels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_18",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 18)",
-    "text": "{ id: \"k12\", phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "oyalty\", channels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_19",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 19)",
-    "text": "{ id: \"k12\", phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "yalty\", channels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_20",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 20)",
-    "text": "{ id: \"k12\", phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "alty\", channels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_21",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 21)",
-    "text": "{ id: \"k12\", phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "lty\", channels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_22",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 22)",
-    "text": "id: \"k12\", phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "ty\", channels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_23",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 23)",
-    "text": "id: \"k12\", phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "y\", channels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_24",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 24)",
-    "text": "d: \"k12\", phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "\", channels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_25",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 25)",
-    "text": ": \"k12\", phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": ", channels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_26",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 26)",
-    "text": "\"k12\", phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "channels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_27",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 27)",
-    "text": "\"k12\", phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "channels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_28",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 28)",
-    "text": "k12\", phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "hannels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_29",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 29)",
-    "text": "12\", phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "annels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_30",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 30)",
-    "text": "2\", phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "nnels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_31",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 31)",
-    "text": "\", phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "nels: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_32",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 32)",
-    "text": ", phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "els: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_33",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 33)",
-    "text": "phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "ls: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_34",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 34)",
-    "text": "phrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "s: \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_35",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 35)",
-    "text": "hrase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": ": \"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_36",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 36)",
-    "text": "rase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "\"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_37",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 37)",
-    "text": "ase: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "\"Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_38",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 38)",
-    "text": "se: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "Weekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_39",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 39)",
-    "text": "e: \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "eekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_40",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 40)",
-    "text": ": \"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "ekend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_41",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 41)",
-    "text": "\"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "kend dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_42",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 42)",
-    "text": "\"Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "end dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_43",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 43)",
-    "text": "Lazzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "nd dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_44",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 44)",
-    "text": "azzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "d dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_45",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 45)",
-    "text": "zzat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_46",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 46)",
-    "text": "zat Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "dish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_47",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 47)",
-    "text": "at Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "ish, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_48",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 48)",
-    "text": "t Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "sh, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_49",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 49)",
-    "text": "Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "h, loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_50",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 50)",
-    "text": "Grill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": ", loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_51",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 51)",
-    "text": "rill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_52",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 52)",
-    "text": "ill & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "loyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_53",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 53)",
-    "text": "ll & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "oyalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_54",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 54)",
-    "text": "l & Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "yalty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_55",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 55)",
-    "text": "& Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "alty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_56",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 56)",
-    "text": "& Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "lty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_57",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 57)",
-    "text": "Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "ty stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_58",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 58)",
-    "text": "Shakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "y stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_59",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 59)",
-    "text": "hakes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_60",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 60)",
-    "text": "akes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "stamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_61",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 61)",
-    "text": "kes menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "tamps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_62",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 62)",
-    "text": "es menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "amps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_63",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 63)",
-    "text": "s menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "mps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_64",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 64)",
-    "text": "menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "ps, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_65",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 65)",
-    "text": "menu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "s, catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_66",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 66)",
-    "text": "enu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": ", catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_67",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 67)",
-    "text": "nu\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_68",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 68)",
-    "text": "u\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "catering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_69",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 69)",
-    "text": "\", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "atering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_70",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 70)",
-    "text": ", lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "tering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_71",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 71)",
-    "text": "lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "ering, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_72",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 72)",
-    "text": "lane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "ring, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_73",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 73)",
-    "text": "ane: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "ing, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_74",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 74)",
-    "text": "ne: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "ng, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_75",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 75)",
-    "text": "e: \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "g, story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_76",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 76)",
-    "text": ": \"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": ", story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_77",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 77)",
-    "text": "\"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_78",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 78)",
-    "text": "\"seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "story tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_79",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 79)",
-    "text": "seo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "tory tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_80",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 80)",
-    "text": "eo\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "ory tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_81",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 81)",
-    "text": "o\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "ry tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_82",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 82)",
-    "text": "\", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "y tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_83",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 83)",
-    "text": ", priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_84",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 84)",
-    "text": "priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "tags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_85",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 85)",
-    "text": "priority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "ags\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_growthCore_ts_86",
     "source": "portal/data/growthCore.ts",
     "title": "Portal data: growthCore (part 86)",
-    "text": "riority: \"P0\", notes: \"Brand + menu\" },\n];"
-  },
-  {
-    "id": "portal_data_growthCore_ts_87",
-    "source": "portal/data/growthCore.ts",
-    "title": "Portal data: growthCore (part 87)",
-    "text": "iority: \"P0\", notes: \"Brand + menu\" },\n];"
+    "text": "gs\", job: \"Repeat + referrals\" },\n  ],\n};"
   },
   {
     "id": "portal_data_igCampaign_ts_1",
@@ -16401,247 +16395,247 @@
     "id": "portal_data_nav_ts_2",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 2)",
-    "text": "\"swot\", label: \"SWOT Analysis\", group: \"1 · Strategy\", n: 4 },\n  { id: \"positioning\", label: \"Positioning & Value Prop\", group: \"1 · Strategy\", n: 5 },\n  { id: \"brand-voice\", label: \"Brand Identity & Voice\", group: \"1 · Strategy\", n: 6 },\n  { id: \"funnel\", label: \"Customer Journey / Funnel\", group: \"2 · Growth\", n: 7 },\n  { id: \"keywords\", label: \"Keyword Research\", group: \"2 · Growth\", n: 8 },\n  { id: \"local-seo\", label: \"Local SEO / GMB\", group: \"2 · Growth\", n: 9 },\n  { id: \"reputation\", label: \"Reputation & Reviews\", group: \"2 · Growth\", n: 10 },\n  { id: \"organic\", label: \"Organic Marketing\", group: \"2 · Growth\", n: 11 },\n  { id: \"influencer\", label: \"Influencer Marketing\", group: \"2 · Growth\", n: 12 },\n  { id: \"paid\", label: \"Paid Marketing Plan\", group: \"2 · Growth\", n: 13 },\n  { id: \"budget\", label: \"Budget & Resource Plan\", group: \"3 · Ops\", n: 14 },\n  { id: \"timeline\", label: \"Timeline / Roadmap\", group: \"3 · Ops\", n: 15 },\n  { id: \"kpis\", label: \"KPIs & Measurement\", group:"
+    "text": "\"swot\", label: \"SWOT Analysis\", group: \"1 · Strategy\", n: 4 },\n  { id: \"positioning\", label: \"Positioning & Value Prop\", group: \"1 · Strategy\", n: 5 },\n  { id: \"brand-voice\", label: \"Brand Identity & Voice\", group: \"1 · Strategy\", n: 6 },\n  { id: \"funnel\", label: \"Customer Journey / Funnel\", group: \"2 · Growth\", n: 7 },\n  { id: \"local-seo\", label: \"Local SEO / GMB\", group: \"2 · Growth\", n: 8 },\n  { id: \"reputation\", label: \"Reputation & Reviews\", group: \"2 · Growth\", n: 9 },\n  { id: \"organic\", label: \"Organic Marketing\", group: \"2 · Growth\", n: 10 },\n  { id: \"influencer\", label: \"Influencer Marketing\", group: \"2 · Growth\", n: 11 },\n  { id: \"paid\", label: \"Paid Marketing Plan\", group: \"2 · Growth\", n: 12 },\n  { id: \"budget\", label: \"Budget & Resource Plan\", group: \"3 · Ops\", n: 13 },\n  { id: \"timeline\", label: \"Timeline / Roadmap\", group: \"3 · Ops\", n: 14 },\n  { id: \"kpis\", label: \"KPIs & Measurement\", group: \"3 · Ops\", n: 15 },\n  { id: \"growth\", label: \"Growth Plan\", group: \"3 · Ops\","
   },
   {
     "id": "portal_data_nav_ts_3",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 3)",
-    "text": "\"timeline\", label: \"Timeline / Roadmap\", group: \"3 · Ops\", n: 15 },\n  { id: \"kpis\", label: \"KPIs & Measurement\", group: \"3 · Ops\", n: 16 },\n  { id: \"growth\", label: \"Growth Plan\", group: \"3 · Ops\", n: 17 },\n  { id: \"cultural\", label: \"Cultural / Seasonal Calendar\", group: \"3 · Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "kpis\", label: \"KPIs & Measurement\", group: \"3 · Ops\", n: 15 },\n  { id: \"growth\", label: \"Growth Plan\", group: \"3 · Ops\", n: 16 },\n  { id: \"cultural\", label: \"Cultural / Seasonal Calendar\", group: \"3 · Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_4",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 4)",
-    "text": "onal Calendar\", group: \"3 · Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "onal Calendar\", group: \"3 · Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_5",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 5)",
-    "text": "nal Calendar\", group: \"3 · Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "nal Calendar\", group: \"3 · Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_6",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 6)",
-    "text": "al Calendar\", group: \"3 · Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "al Calendar\", group: \"3 · Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_7",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 7)",
-    "text": "l Calendar\", group: \"3 · Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "l Calendar\", group: \"3 · Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_8",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 8)",
-    "text": "Calendar\", group: \"3 · Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "Calendar\", group: \"3 · Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_9",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 9)",
-    "text": "Calendar\", group: \"3 · Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "Calendar\", group: \"3 · Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_10",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 10)",
-    "text": "alendar\", group: \"3 · Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "alendar\", group: \"3 · Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_11",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 11)",
-    "text": "lendar\", group: \"3 · Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "lendar\", group: \"3 · Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_12",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 12)",
-    "text": "endar\", group: \"3 · Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "endar\", group: \"3 · Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_13",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 13)",
-    "text": "ndar\", group: \"3 · Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "ndar\", group: \"3 · Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_14",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 14)",
-    "text": "dar\", group: \"3 · Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "dar\", group: \"3 · Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_15",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 15)",
-    "text": "ar\", group: \"3 · Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "ar\", group: \"3 · Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_16",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 16)",
-    "text": "r\", group: \"3 · Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "r\", group: \"3 · Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_17",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 17)",
-    "text": "\", group: \"3 · Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "\", group: \"3 · Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_18",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 18)",
-    "text": ", group: \"3 · Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": ", group: \"3 · Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_19",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 19)",
-    "text": "group: \"3 · Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "group: \"3 · Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_20",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 20)",
-    "text": "group: \"3 · Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "group: \"3 · Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_21",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 21)",
-    "text": "roup: \"3 · Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "roup: \"3 · Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_22",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 22)",
-    "text": "oup: \"3 · Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "oup: \"3 · Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_23",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 23)",
-    "text": "up: \"3 · Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "up: \"3 · Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_24",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 24)",
-    "text": "p: \"3 · Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "p: \"3 · Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_25",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 25)",
-    "text": ": \"3 · Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": ": \"3 · Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_26",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 26)",
-    "text": "\"3 · Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "\"3 · Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_27",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 27)",
-    "text": "\"3 · Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "\"3 · Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_28",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 28)",
-    "text": "3 · Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "3 · Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_29",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 29)",
-    "text": "· Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "· Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_30",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 30)",
-    "text": "· Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "· Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_31",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 31)",
-    "text": "Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_32",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 32)",
-    "text": "Ops\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "Ops\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_33",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 33)",
-    "text": "ps\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "ps\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_34",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 34)",
-    "text": "s\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "s\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_35",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 35)",
-    "text": "\", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "\", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_36",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 36)",
-    "text": ", n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": ", n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_37",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 37)",
-    "text": "n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_38",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 38)",
-    "text": "n: 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "n: 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_39",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 39)",
-    "text": ": 18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": ": 17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_40",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 40)",
-    "text": "18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_41",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 41)",
-    "text": "18 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "17 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_42",
     "source": "portal/data/nav.ts",
     "title": "Portal data: nav (part 42)",
-    "text": "8 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
+    "text": "7 },\n];\n\n/** @deprecated use SHORT_NAV / FULL_NAV */\nexport const NAV = SHORT_NAV;"
   },
   {
     "id": "portal_data_nav_ts_43",

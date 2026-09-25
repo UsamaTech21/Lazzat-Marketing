@@ -85,27 +85,3 @@ export const funnel = {
     { stage: "Loyalty", channels: "Weekend dish, loyalty stamps, catering, story tags", job: "Repeat + referrals" },
   ],
 };
-
-export type Keyword = {
-  id: string;
-  phrase: string;
-  lane: "gmb" | "seo" | "content" | "llmo";
-  priority: "P0" | "P1" | "P2";
-  notes: string;
-  deletedAt?: string | null;
-};
-
-export const keywordsSeed: Keyword[] = [
-  { id: "k1", phrase: "flame grilled bowls Brampton", lane: "seo", priority: "P0", notes: "Align to site hero" },
-  { id: "k2", phrase: "lava stone grill Brampton", lane: "seo", priority: "P0", notes: "Never charcoal" },
-  { id: "k3", phrase: "takeaway near McVean Drive Brampton", lane: "gmb", priority: "P0", notes: "Loc 1" },
-  { id: "k4", phrase: "chicken sajji Brampton", lane: "seo", priority: "P1", notes: "Hero dish" },
-  { id: "k5", phrase: "best biryani takeaway Brampton", lane: "seo", priority: "P1", notes: "Blog cluster" },
-  { id: "k6", phrase: "paneer tikka Brampton", lane: "seo", priority: "P1", notes: "Veg differentiator" },
-  { id: "k7", phrase: "real fruit shakes Brampton", lane: "content", priority: "P1", notes: "Dual pillar" },
-  { id: "k8", phrase: "family platter Brampton grill", lane: "content", priority: "P1", notes: "Revenue driver" },
-  { id: "k9", phrase: "clean meat restaurant Brampton", lane: "llmo", priority: "P1", notes: "Not halal keyword" },
-  { id: "k10", phrase: "catering Brampton grilled platters", lane: "seo", priority: "P2", notes: "Catering form when live" },
-  { id: "k11", phrase: "Clarence Street takeaway Brampton", lane: "gmb", priority: "P2", notes: "Only if location live" },
-  { id: "k12", phrase: "Lazzat Grill & Shakes menu", lane: "seo", priority: "P0", notes: "Brand + menu" },
-];

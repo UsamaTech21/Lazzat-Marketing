@@ -1,7 +1,6 @@
 export const STORAGE_KEYS = {
   checklist: "lazzat-portal-checklist",
   tasks: "lazzat-portal-tasks",
-  keywords: "lazzat-portal-keywords",
   calendar: "lazzat-portal-calendar",
   costing: "lazzat-portal-costing",
   costingAssumptions: "lazzat-portal-costing-assumptions",

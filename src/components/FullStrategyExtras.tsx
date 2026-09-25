@@ -1,7 +1,6 @@
 "use client";
 
 import { Section } from "@/components/PortalShell";
-import { KeywordTable } from "@/components/KeywordTable";
 import { brand } from "@/data/brand";
 import { audience, competitors, swot } from "@/data/strategyCore";
 import { positioning, funnel } from "@/data/growthCore";
@@ -20,12 +19,7 @@ import {
   culturalCampaigns,
 } from "@/data/strategyExtras";
 
-type Handlers = {
-  recycleKey: number;
-  bumpRecycle: () => void;
-};
-
-export function FullStrategyBeforePaid({ bumpRecycle }: Pick<Handlers, "bumpRecycle">) {
+export function FullStrategyBeforePaid() {
   return (
     <>
       <Section id="audience" title={audience.title} subtitle={audience.subtitle}>
@@ -372,14 +366,6 @@ export function FullStrategyBeforePaid({ bumpRecycle }: Pick<Handlers, "bumpRecy
         </div>
       </Section>
 
-      <Section
-        id="keywords"
-        title="Keyword Research"
-        subtitle="Local SEO lanes — never charcoal or halal keywords."
-      >
-        <KeywordTable onSoftDelete={bumpRecycle} />
-      </Section>
-
       <Section id="local-seo" title={localSeo.title} subtitle={localSeo.subtitle}>
         <p className="mb-4 text-[13px] text-[var(--muted)]">{localSeo.liveNote}</p>
         <div className="mb-4 grid gap-3 md:grid-cols-2">
@@ -563,7 +549,7 @@ export function FullStrategyBeforePaid({ bumpRecycle }: Pick<Handlers, "bumpRecy
   );
 }
 
-export function FullStrategyAfterBudget(_props: Pick<Handlers, "recycleKey" | "bumpRecycle">) {
+export function FullStrategyAfterBudget() {
   return (
     <>
       <Section id="timeline" title={timeline.title} subtitle={timeline.caveat}>

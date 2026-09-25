@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { PortalShell, Section, StatTile } from "@/components/PortalShell";
 import {
   FullStrategyAfterBudget,
@@ -18,7 +18,6 @@ import { STORAGE_KEYS, clearKeys, loadJson, saveJson } from "@/lib/storage";
 
 export function StrategyApp() {
   const [fullStrategy, setFullStrategy] = useState(false);
-  const [recycleKey, setRecycleKey] = useState(0);
   const [preview, setPreview] = useState<{ src: string; alt: string } | null>(null);
 
   useEffect(() => {
@@ -32,8 +31,6 @@ export function StrategyApp() {
       return next;
     });
   };
-
-  const bumpRecycle = useCallback(() => setRecycleKey((k) => k + 1), []);
 
   const resetAll = () => {
     clearKeys(Object.values(STORAGE_KEYS).filter((k) => k !== STORAGE_KEYS.fullStrategy));
@@ -523,7 +520,7 @@ export function StrategyApp() {
         </div>
       </Section>
 
-      {fullStrategy && <FullStrategyBeforePaid bumpRecycle={bumpRecycle} />}
+      {fullStrategy && <FullStrategyBeforePaid />}
 
       <Section id="paid" title={paidPlan.title} subtitle={paidPlan.subtitle}>
         <div
@@ -656,9 +653,7 @@ export function StrategyApp() {
         </div>
       </Section>
 
-      {fullStrategy && (
-        <FullStrategyAfterBudget recycleKey={recycleKey} bumpRecycle={bumpRecycle} />
-      )}
+      {fullStrategy && <FullStrategyAfterBudget />}
     </PortalShell>
   );
 }
